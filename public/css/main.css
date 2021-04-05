@@ -1,0 +1,85 @@
+/* Google fonts */
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext");
+
+/* CDN For using font awesome icons */
+
+html {
+  font-size: 16px;
+  position: relative;
+  scroll-behavior: smooth;
+}
+
+/* Root variables  */
+:root {
+
+  /* Styles for scrollbar ( Does not work in every broswer ) */
+  --scrollbar-track-color: transparent;
+  --scrollbar-color: rgba(46, 204, 113,1.0);
+  --scrollbar-size: .4rem;
+  --scrollbar-minlength: 1.4rem; 
+}
+
+::selection {
+  color: #fff;
+  background-color: #8167a9;
+}
+::-moz-selection {
+  color: #fff;
+  background-color: #8167a9;
+}
+
+/* Global styles for scrollbar */
+*::-webkit-scrollbar {
+  background-color: rgba(52, 73, 94,.9);
+  height: 10px;
+  width: var(--scrollbar-size);
+}
+*::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-track-color);
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  /* Add :hover, :active as needed */
+}
+*::-webkit-scrollbar-thumb:vertical {
+  min-height: var(--scrollbar-minlength);
+}
+*::-webkit-scrollbar-thumb:horizontal {
+  min-width: var(--scrollbar-minlength);
+}
+/* ***************************************** */
+
+
+/* Global styles */
+
+*
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  
+}
+
+
+body
+{
+  position: relative;
+  
+}
+.btn,
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus {
+  box-shadow: none !important;
+}
+
+a {
+  color: tomato;
+}
+
+a:hover {
+  text-decoration: none !important;
+  color: rgb5(255, 99, 71,.8);
+}

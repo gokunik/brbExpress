@@ -1,0 +1,22 @@
+{
+  "name": "banda-roti-bank",
+  "version": "1.0.0",
+  "description": "website for banda roti bank",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "authors": [
+    "Nitesh khatri",
+    "Ishika keshwani",
+    "Deepak khatri",
+    "Ramandeep singh",
+    "Ashish Kumar Pal"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1",
+    "nodemon": "^2.0.7"
+  }
+}
