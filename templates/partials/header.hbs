@@ -1,0 +1,113 @@
+{{!-- Head navigation. --}}
+{{!-- divided into to menu's secondary and main menu --}}
+
+<header id="mainHeader">
+    <!-- Secondary header - it include phone and email, option for login and register and option for donation -->
+    <div id="infoHeader" class="d-flex flex-wrap justify-content-between p-3 align-items-center bg-dark">
+        <!-- section 1 of the secondary header -->
+        <div class="infoSec1 px-1 d-flex flex-wrap">
+            <div>
+                <i class="fa fa-phone flex-fill"></i>
+                <a class="text-white" href="tel:1234567890"> +911234567890</a>
+            </div>
+            <div>
+                <i class="fa fa-envelope flex-fill"></i>
+                <a class="text-white" href="mailto:bandarotibank@gmail.com"> bandarotibank@gmail.com</a>
+            </div>
+        </div>
+
+        <!-- section 2 of secondary header -->
+        <div class="infoSec2 px-2 flex-fill d-flex flex-wrap">
+            <button type="button" id="donateBtn" class="btn btn-warning" data-toggle="modal" data-target="donateModal">
+                Donate
+            </button>
+            <div class="btn-group d-flex">
+                <button type="button" id="loginBtn" class="btn btn-info" data-toggle="modal" data-target="#loginModal">
+                    Login
+                </button>
+
+                <button type="button" id="registerBtn" class="btn btn-info" data-toggle="modal"
+                    data-target="#registerModal">
+                    Register
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Primary header -->
+    <div class="navigation-wrap bg-light start-header" id="header">
+        <div class="px-5">
+            <nav class="navbar navbar-expand-md navbar-light">
+                <!-- logo -->
+                <div class="navbar-brand">Banda Roti Bank</div>
+
+                <!-- Menu toggle button for mobile devices -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto py-4 py-md-0">
+                        <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                            <a class="nav-link" href="/newsfeed">NewsFeed</a>
+                        </li>
+                        <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                            <a class="nav-link" href="/about">About Us</a>
+                        </li>
+                        <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                            <a class="nav-link"href="/contact">Contact</a>
+                        </li>
+                        <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">Know more <i
+                                    class="fa fa-caret-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/leaderboard">Donation leaderboard</a>
+                                <a class="dropdown-item" href="mission">Our Mission</a>
+                                <a class="dropdown-item" href="events">Events</a>
+                                <a class="dropdown-item" href="gallery">Gallery</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- End of the primary menu -->
+
+    <!-- Login and Register Modal -->
+    <div class="modal fade" id="loginModal" #loginModal>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="fa fa-times-circle"></i>
+                </button>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    {{>login}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" #registerModal>
+        <div class="modal-dialog  modal-dialog-scrollable">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="fa fa-times-circle"></i>
+                </button>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    {{>register}}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+

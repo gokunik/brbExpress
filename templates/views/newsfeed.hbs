@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Feed</title>
+    <link rel="stylesheet" href="css/newsfeed.css">
+    {{>headerInlcudes}}
+</head>
+
+<body>
+    {{>header}}
+
+    <div class="container">
+        <div class="page-header text-center">
+            <h1>Latest Updates <small></small></h1>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-8">
+                <article id="" *ngFor="let item of arrayOne(2); let i = index">
+                    <header>
+                        <h2 style="margin-top: 0px">
+                            <a class="text-black"> We are organizing an Event </a>
+                        </h2>
+                    </header>
+                    <div class="entry-content">
+                        <a href="">
+                            <img src="images/gallery/Events/IMG-20190303-WA0050.jpg" alt="" class="img-fluid"
+                                style="border: 1px solid grey" />
+                        </a>
+                        <div class="meta pt-2">
+                            Written by <span class="author">Rizwan Ali</span>
+                            <span class="date">20 march 2020</span> |
+                            <span class="comments"><span class="badge">4</span> Comments</span>
+                        </div>
+                        <p class="lead">
+                            Banda Roti Bank started in January 2018 with a motive to feed hungry
+                            people around the locality of banda and provide them with basic
+                            commodities like blankets and warm clothes in winter and later we
+                            expanded our community services and started helping people to every
+                            extent. &hellip;
+                        </p>
+    
+                        <a href="#" class="btn btn-primary">Read More
+                            <span class="glyphicon glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                    </div>
+                    <footer></footer>
+                </article>
+            </div>
+            <aside class="col-md-4">
+                <div class="card mb-3">
+                    <h3 class="card-header mb-3">Info through Email</h3>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email" />
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+    
+                <h3>social Media Feed</h3>
+                <div class="list-group mb-3">
+                    <div class="card">
+                        <div class="card-header mb-3">Instagram</div>
+                        <div>
+                            <img src="https://picsum.photos/200" class="img-fluid mx-auto d-block" alt="" />
+                            <div class="card-body">
+                                <h4 class="card-title">Post Title</h4>
+                                <p class="card-text">Post discription</p>
+                                <hr />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+
+    {{>footer}}
+</body>
+
+</html>
