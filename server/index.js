@@ -13,7 +13,7 @@ const partials = path.join(__dirname, "../templates/partials"); // path for part
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
-app.use(express.static('../public'));
+app.use(express.static(path.join(__dirname,"../public")));
     
 
 app.set("view engine", "hbs");
