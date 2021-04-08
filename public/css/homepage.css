@@ -125,13 +125,13 @@
 }
 
 
-#services {
+#explore {
   background: #fff;
   background-size: cover;
   padding: 100px 0 60px 0;
 }
 
-#services .box {
+#explore .box {
   padding: 50px 20px;
   margin-bottom: 50px;
   text-align: center;
@@ -141,7 +141,7 @@
   background: #fafafa;
 }
 
-#services .icon {
+#explore .icon {
   position: absolute;
   top: -36px;
   left: calc(50% - 36px);
@@ -158,40 +158,40 @@
   background: #2dc997;
 }
 
-#services .icon a {
+#explore .icon a {
   display: inline-block;
 }
 
-#services .icon i {
+#explore .icon i {
   color: #fff;
   font-size: 24px;
 }
 
-#services .box:hover .icon {
+#explore .box:hover .icon {
   background: #fff;
   border: 2px solid #2dc997;
 }
 
-#services .box:hover .icon i {
+#explore .box:hover .icon i {
   color: #2dc997;
 }
 
-#services .box:hover .icon a {
+#explore .box:hover .icon a {
   color: #2dc997;
 }
 
-#services .title {
+#explore .title {
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 15px;
   text-transform: uppercase;
 }
 
-#services .title a {
+#explore .title a {
   color: #111;
 }
 
-#services .description {
+#explore .description {
   font-size: 14px;
   line-height: 24px;
 }
