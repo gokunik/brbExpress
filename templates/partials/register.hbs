@@ -7,7 +7,7 @@
             <div class="card-text">
                 <!--
 			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
-                <form class="form" action="/register" method="POST">
+                <form class="form" action="/register" method="POST" onsubmit="return validate()">
                     <!-- to error: add class "has-danger" -->
 
                     <div class="userType pb-3">
@@ -15,7 +15,7 @@
                         <div class="d-flex">
                             <div class="form-check pr-4">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="optradio" id="user" value="user"/>User
+                                    <input type="radio" class="form-check-input" name="optradio" id="user" value="user" checked/>User
                                 </label>
                             </div>
 
@@ -29,27 +29,31 @@
 
                     <div class="form-group">
                         <label for="fullName">Your Full Name</label>
-                        <input type="text" class="form-control form-control-sm" id="fullName" name="name" />
+                        <input type="text" class="form-control form-control-sm" id="fullName" name="name" required/>
+                        <span id="nameerr"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="phoneNo">Your Phone Number</label>
-                        <input type="text" class="form-control form-control-sm" id="phoneNo" name="phone"/>
+                        <input type="text" class="form-control form-control-sm" id="phoneNo" name="phone" required/>
+                        <span id="phoneerr"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="registerEmail">Email address</label>
-                        <input type="email" class="form-control form-control-sm" id="registerEmail" name="email"/>
+                        <input type="email" class="form-control form-control-sm" id="registerEmail" name="email" required/>
+                         <span id="emailerr"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="registerPassword">Password</label>
-                        <input type="password" class="form-control form-control-sm" id="registerPassword" name="password"/>
+                        <input type="password" class="form-control form-control-sm" id="registerPassword" name="password" required/>
+                         <span id="passerr"></span>
                     </div>
                     
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input" />
+                            <input type="checkbox" class="form-check-input" required/>
                             By clicking, you agree to our Privacy & Terms
                         </label>
                     </div>
@@ -65,3 +69,45 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    function validate(){
+        var uname=document.getElementById("fullName").value;
+        var email=document.getElementById("registerEmail").value;
+        var phone=document.getElementById("phoneNo").value;
+        var pass=document.getElementById("registerPassword").value;
+
+        var namechecker= /^[A-Za-z. ]{3,30}$/;
+        var emailchecker=/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+        var phonechecker=/^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+        var passchecker=/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+        if(namechecker.test(uname)){
+            document.getElementById('nameerr').innerHTML="";
+        }else{
+            document.getElementById('nameerr').innerHTML="*Invalid name";
+            return false;
+        }
+
+        if(phonechecker.test(phone)){
+            document.getElementById('phoneerr').innerHTML="";
+        }else{
+            document.getElementById('phoneerr').innerHTML="*Invalid number";
+            return false;
+        }
+
+        if(emailchecker.test(email)){
+            document.getElementById('emailerr').innerHTML="";
+        }else{
+            document.getElementById('emailerr').innerHTML="*Invalid email";
+            return false;
+        }
+
+        if(passchecker.test(pass)){
+            document.getElementById('passerr').innerHTML="";
+        }else{
+            document.getElementById('passerr').innerHTML="*Invalid password";
+            return false;
+        }
+        
+    }
+    </script>
