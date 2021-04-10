@@ -1,7 +1,7 @@
 #hero {
   width: 100%;
   height: 100vh;
-  background: url('../images/home/girlBg.jpg') top center;
+  background: url("../images/home/girlBg.jpg") top center;
   background-size: cover;
   position: relative;
 }
@@ -42,7 +42,7 @@
   line-height: 56px;
   text-transform: uppercase;
   color: #fff;
- font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -86,31 +86,8 @@
   border: 2px solid #2dc997;
 }
 
-
-#facts {
-  background: #f7f7f7;
-  padding: 80px 0 60px 0;
-}
-
-#facts .counters span {
-  font-size: 16px;
-  display: block;
-  color: #2dc997;
-  text-align:justify;
-  font-weight: 400;
-  
-}
-
-#facts .counters .card-header {
-  
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-size: 16px;
-  
-}
-
 .section-header .section-title {
-  font-size: 32px;
+  font-size: 30px;
   color: #111;
   text-transform: uppercase;
   text-align: center;
@@ -123,7 +100,6 @@
   padding-bottom: 40px;
   color: #999;
 }
-
 
 #explore {
   background: #fff;
@@ -187,11 +163,183 @@
   text-transform: uppercase;
 }
 
-#explore .title a {
-  color: #111;
-}
-
 #explore .description {
   font-size: 14px;
   line-height: 24px;
+}
+
+/* Section 2 
+ -------------------------*/
+
+#donateSection {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(233, 233, 233, 0.85) 100%
+  );
+  padding: 30px 0px;
+}
+
+#donateSection .card {
+  font-family: "Poppins", sans-serif;
+  border: none;
+  box-shadow: 0px 0px 10px 0.5px rgba(14, 13, 13, 0.3),
+    0px 0px 50px 10px whitesmoke;
+}
+
+#donateSection .contributeBtn .btn {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  background-color: #ff5050;
+}
+
+/* About Us Section
+--------------------------------*/
+#about {
+  background: #fff;
+  padding: 70px 0;
+  font-family: "Poppins", sans-serif;
+}
+
+#about .about-container .background {
+  min-height: 300px;
+  margin-bottom: 10px;
+}
+
+#about .about-container .content {
+  background: #fff;
+}
+
+#about .about-container .title {
+  font-weight: 700;
+  font-size: 32px;
+}
+
+@media (max-width: 768px) {
+  #about .about-container .title {
+    padding-top: 15px;
+  }
+}
+
+#about .about-container p {
+  line-height: 26px;
+}
+
+#about .about-container p:last-child {
+  margin-bottom: 0;
+}
+
+#about .about-container .icon-box {
+  background: #fff;
+  background-size: cover;
+  padding: 0 0 30px 0;
+}
+
+#about .about-container .icon-box .icon {
+  float: left;
+  background: #fff;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid #2dc997;
+}
+
+#about .about-container .icon-box .icon img {
+  color: #2dc997;
+  width: 35px;
+}
+
+#about .about-container .icon-box .title {
+  margin-left: 80px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+#about .about-container .icon-box .title a {
+  color: #111;
+}
+
+#about .about-container .icon-box .description {
+  margin-left: 80px;
+  line-height: 24px;
+  font-size: 14px;
+}
+
+#about .aboutVideo {
+  filter: grayscale(80%);
+}
+
+/* Team Memeber section */
+
+#team {
+  background: #fff;
+  padding: 50px 0 60px 0;
+}
+
+#team .member {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#team .member .pic {
+  margin-bottom: 15px;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+#team .member .pic img {
+  max-width: 100%;
+}
+
+#team .member h4 {
+  font-weight: 700;
+  margin-bottom: 2px;
+  font-size: 18px;
+}
+
+#team .member span {
+  font-style: italic;
+  display: block;
+  font-size: 13px;
+}
+
+#team .member .social {
+  margin-top: 5px;
+}
+
+#team .member .social a {
+  color: #b3b3b3;
+}
+
+#team .member .social a:hover {
+  color: #2dc997;
+}
+
+#team .member .social i {
+  font-size: 18px;
+  margin: 0 2px;
+}
+
+/* Last section of the homepage */
+/* call to action  */
+
+#callToAction {
+  background-color: #ff5050d0;
+}
+
+#callToAction .btn {
+  width: 100px;
+  height: 50px;
+  padding: 10px !important;
+  color: whitesmoke;
+  background-color: #1abc9c;
+  font-family: "Poppins", sans-serif;
 }
