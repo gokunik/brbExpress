@@ -2,6 +2,7 @@ const express = require("express");
 const hbs = require("hbs");
 const path = require("path");
 
+
 require("./db/conn");    //Connection to mongodb Database
 
 const app = express();
@@ -15,7 +16,6 @@ app.use(express.urlencoded({extended:false}));
 
 app.use(express.static(path.join(__dirname,"../public")));
     
-
 app.set("view engine", "hbs");
 app.set("views", templatePath);
 hbs.registerPartials(partials);     

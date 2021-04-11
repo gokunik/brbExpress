@@ -6,16 +6,17 @@
         <div class="card-body">
             <div class="card-text">
                 <form class="form" action="/login" method="POST">
+                <span id="invalidDiv" style="display:none">Invalid email or password</span>
                     <div class="form-group">
                         <label for="loginEmail">Email address</label>
-                        <input type="email" class="form-control form-control-sm" id="loginEmail" name="email"/>
+                        <input type="email" class="form-control form-control-sm" id="loginEmail" name="email" required/>
                     </div>
                     <div class="form-group">
                         <label for="loginPassword">Password</label>
                         <a href="#" style="float: right; font-size: 12px">Forgot password?</a>
-                        <input type="password" class="form-control form-control-sm" id="loginPassword" name="password"/>
+                        <input type="password" class="form-control form-control-sm" id="loginPassword" name="password" required/>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    <button type="button" onclick='btnClicked()' class="btn btn-primary btn-block" id = "loginBtn">Login</button>
 
                     <div class="sign-up">
                         Don't have an account? <a href="#">Create One</a>
@@ -25,3 +26,33 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var btnClicked = function (){
+        
+        console.log('Btn Fired');
+        
+        var http =new XMLHttpRequest();
+        var data  = 
+        {
+            'email': document.getElementById('loginEmail').value, 
+            'password': document.getElementById('loginPassword').value
+        };
+        http.open('post', 'http://localhost:3000/login');
+        http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+        console.log('request initialized')
+        http.send("email=" + data.email + "&password=" + data.password);
+        console.log('request sent')
+        http.onreadystatechange = function(ev){
+            console.log(http.readyState);
+        }
+        http.onloadend = function (ev){
+            console.log('Load ended');
+            console.log(http.responseText);
+            if(http.responseText == 'invalid'){
+                document.getElementById('invalidDiv').style.setProperty('display', 'block');
+            } else {
+                window.open(http.responseText,"_self");
+            }
+        }
+    }
+</script>
