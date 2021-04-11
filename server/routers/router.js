@@ -6,7 +6,7 @@ const Volunteer = require("../models/Volunteer"); //Volunteer Schema is called h
 
 // Website routes
 router.get("/", (req, res) => {
-    res.render("index")
+    res.render("index",failed='');
 }); 
                  
 router.get("/newsfeed", (req, res) => {
@@ -66,23 +66,25 @@ router.post("/register",async(req,res) => {
 
 router.post('/login', async(req, res) => {
     try {
+
+        console.log(req.body);
         const uemail = await User.findOne({email:req.body.email});
         if(!uemail){
             const vemail =  await Volunteer.findOne({email:req.body.email});
             if(req.body.password === vemail.password){
-                res.render("newsfeed");
+                res.send("http://localhost:3000/newsfeed");
             }else{
-                res.send("Something went wrong");
+               res.send("invalid");
             }
         }else{
         if(req.body.password === uemail.password){
-            res.render("newsfeed");
+            res.send("http://localhost:3000/newsfeed");
         }else{
-            res.send("Something went wrong");
+            res.send("invalid");
         }
      } 
     } catch (e) {
-        res.status(400).send(e);
+       res.send("invalid");
     }
 });
 
