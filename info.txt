@@ -1,0 +1,16 @@
+command to run nodemon - nodemon ./server/index.js
+command to start the project - npm start
+
+Add all your pending task here
+1. Add favicon
+2. add proper validation to login and registration 
+   - it is missing ui indicator for invalid field
+   - only one invalid case is shown at one point of time even if all are invalid
+3. fix about and newfeed page - make ui changes
+
+
+
+
+
+
+

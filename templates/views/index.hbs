@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +9,25 @@
     <link rel="stylesheet" href="css/homepage.css">
     {{>headerInlcudes}}
 </head>
-<body> 
+
+<body>
     {{>header}}
 
     {{!-- *********************************************************************************** --}}
+    {{!-- Section 1 starts from here --}}
     <section id="hero">
         <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
             <h1>Your <span class="text-danger">Help</span></h1>
             <h2>Is Someone's <span class="text-warning font-weight-bold font-italic">Growth</span></h2>
-            <a href="#services" class="btn-get-started">Get Started</a>
+            <a href="#explore" class="btn-get-started">Explore</a>
         </div>
     </section>
-    
-    <section id="services">
-        <div class="container" data-aos="fade-up">
+
+    {{!-- Section 2 starts from here --}}
+    <section id="explore" class="pb-5">
+        <div class="container">
             <div class="section-header mb-5">
-                <h3 class="section-title">It's Time to <span class="text-danger">React</span></h3>
+                <h3 class="section-title text-dark">It's Time to <span class="text-danger">React</span></h3>
                 <p class="section-description">
                     11.3% of the world’s population is hungry.
                     Poverty is the principal cause of hunger.
@@ -35,7 +39,9 @@
                         <div class="icon">
                             <a><i class="fa fa-exclamation-triangle"></i></a>
                         </div>
-                        <h4 class="title"><a href="">Its a Global Crises</a></h4>
+                        <h4 class="title">
+                            <p class="text-info">Its a Global Crises</p>
+                        </h4>
                         <p class="description">
                             Almost 1 in every 15 children in developing countries dies before
                             the age of 5, most of them from hunger-related causes
@@ -47,7 +53,9 @@
                         <div class="icon">
                             <a><i class="fa fa-globe"></i></a>
                         </div>
-                        <h4 class="title"><a href="">We need development</a></h4>
+                        <h4 class="title">
+                            <p class="text-info">We need development</p>
+                        </h4>
                         <p class="description">
                             Nearly 98% of worldwide hunger exists in underdeveloped countries.
                         </p>
@@ -58,17 +66,210 @@
                         <div class="icon">
                             <a><i class="fa fa-frown-o"></i></a>
                         </div>
-                        <h4 class="title"><a href="">Think About It</a></h4>
+                        <h4 class="title">
+                            <p class="text-info">Think About It</p>
+                        </h4>
                         <p class="description">
-                            Hunger kills more people than the deadly Corona virus have in total "Every Year"
+                            Hunger kills more people "Every Year" than the deadly Corona virus have in total
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    {{!-- Section 3 starts from here --}}
+    <section id="donateSection" class="mt-3">
+        <div class="container d-flex flex-wrap flex-lg-nowrap mb-4">
+            <div class="container flex-fill">
+                <div class="section-header mb-1">
+                    <h3 class="section-title text-center text-lg-left text-dark">Help Us Bring the <span
+                            class="text-danger">Change</span></h3>
+                    <p class="text-dark py-2 text-justify">
+                        One in three of the world’s malnourished children live in India. Our children are going to
+                        school hungry. They sufferfrom lack of concentration and reduced cognitive development,
+                        directly leading to their dropping out of school. Join us in our mission to prevent hunger
+                        diminishing our children’s opportunities to succeed.
+                    </p>
+                </div>
+                <div class="mb-4">
+                    <img src="images/home/ngo_img1.jpg" class="img-fluid img-thumbnail d-none d-lg-block" alt="">
+                </div>
+                <div class="contributeBtn mb-lg-0 d-none d-lg-block">
+                    <button class="btn btn-danger">Send
+                        your contribution
+                    </button>
+                </div>
+            </div>
+
+            {{!-- section to with card --}}
+            <div class="container px-0 px-sm-1 pl-lg-5 flex-fill">
+                <div class="card ml-lg-1">
+                    <img class="card-img-top d-none d-lg-block" src="images/home/card1.jpg" alt="Card image">
+                    <img class="card-img-top d-block d-lg-none" src="images/home/ngo_img1.jpg" alt="Card image">
+                    <div class="card-body">
+                        <h4 class="card-title text-dark">Fight Against <span class="text-danger">Hunger</span> </h4>
+                        <p class="card-text">
+                            Every good initiative need support and in our case your help is our
+                            support. Help us make things possible. let us make the world a better place together.
+                            The money you will donate will be used to feed hungry and needy people, those who actually
+                            need your help.
+                        </p>
+
+                    </div>
+                    <div class="card-footer">
+                        <h6 class="pb-1">Help us fill this bar</h6>
+                        <div class="progress ">
+                            <div class="progress-bar"> 0% </div>
+                        </div>
+                        <div class="d-flex justify-content-between" style="font-size: 15px;">
+                            <p class="pt-2">
+                                Target: &#8377; 10000
+                            </p>
+
+                            <p class="pt-2">
+                                Contributed: &#8377; 0000
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contributeBtn mt-4 mb-lg-0 d-block d-lg-none" style="position: relative;">
+                    <button class="btn btn-danger btn-block" style="z-index: 99;">Send
+                        your contribution
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- section 4 starts from here --}}
+    <section id="about">
+        <div class="container" data-aos="fade-up">
+            <div class="row about-container">
+
+                <div class="col-lg-6 content">
+                    <h2 class="title text-dark">Few Words About Us</h2>
+                    <p class="text-justify">
+                        We started as small initiative in small city of banda but our motive was never small.
+                        Today we have come a long helping people in different ways and try to never limit our self.
+                        Whatever we do is not possible without your support.
+                    </p>
+
+                    <div class="icon-box mt-4">
+                        <div class="icon"><img src="images/home/carrot.svg" /></div>
+                        <h4 class="title"><a href="">Free Food</a></h4>
+                        <p class="description">
+                            Providing free food is one of our major motive which is also the reason for the emergence of
+                            Banda roti bank.
+                        </p>
+                    </div>
+
+                    <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon"><img src="images/home/community.svg"></div>
+                        <h4 class="title"><a href="">Community Services</a></h4>
+                        <p class="description">
+                            Being responsible citizens of india we always try to help our community regardless of cast
+                            and religion
+                        </p>
+                    </div>
+
+                    <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon"><img src="images/home/social_work.svg" alt=""></div>
+                        <h4 class="title"><a href="">Social Work</a></h4>
+                        <p class="description">
+                            Providing free food, hosting community wedding, distributing clothes and basic commidities,
+                            organizing social events.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6 background aboutVideo" data-aos="fade-left" data-aos-delay="100">
+                    <div class="h-100 d-flex align-items-center justify-content-center">
+                        <video class="img-fluid img-thumbnail rounded" autoplay muted loop preload="none">
+                            <source src="images/home/v1.mp4" type="video/mp4">
+                            <source src="images/home/ngo_img2.jpg" type="img/jpg">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{!-- End of about section --}}
+
+    {{!-- ======= Team Section ======= --}}
+    <section id="team">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h3 class="section-title">Our Team</h3>
+                <p class="section-description">Meet our team which make all this possible.</p>
+            </div>
+            <div class="row justify-content-around">
+                <div class="col-lg-3 col-md-6">
+                    <div class="member" data-aos="fade-up" data-aos-delay="100">
+                        <div class="pic img-thumbnail"><img src="images/home/president.jpeg" alt="Ngo president Photo">
+                        </div>
+                        <h4>Rizwan Ali</h4>
+                        <span>President</span>
+                        <div class="social">
+                            <a class="text-dark" href="tel:1234567890">1234567890</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="member" data-aos="fade-up" data-aos-delay="100">
+                        <div class="pic img-thumbnail"><img src="images/home/womanPresident.jpeg"
+                                alt="Ngo president Photo">
+                        </div>
+                        <h4>Tabassum Fatima</h4>
+                        <span>Woman President</span>
+                        <div class="social">
+                            <a class="text-dark" href="tel:9005800918">9005800918</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="member" data-aos="fade-up" data-aos-delay="100">
+                        <div class="pic img-thumbnail"><img src="images/home/vicePresident.jpeg"
+                                alt="Ngo president Photo">
+                        </div>
+                        <h4>Muin Farooqui</h4>
+                        <span>Vice President</span>
+                        <div class="social">
+                            <a class="text-dark" href="tel:9453155223">9453155223</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{!-- End of about section --}}
+
+    {{!-- Last section of homepage starts from here --}}
+    {{!-- call to action --}}
+    <section id="callToAction">
+        <div class="section-header py-5">
+            <h3 class="section-title text-light">Wanna Help Us ?</h3>
+        </div>
+
+        <div class="row pb-4 flex-wrap justify-content-center no-gutters">
+            <div class="col-4 text-center ">
+                <button id="volunteer" class="btn btn-dark">
+                    Volunteer
+                </button>
+            </div>
+            <div class="col-4 text-center">
+                <button id="donate" class="btn btn-dark">
+                    Donate
+                </button>
+            </div>
+        </div>
+
+    </section>
     {{!-- *********************************************************************************** --}}
 
     {{>footer}}
 </body>
+
 </html>
