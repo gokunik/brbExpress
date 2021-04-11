@@ -10,7 +10,7 @@ function validate() {
 
     var namechecker = /^[A-Za-z. ]{3,30}$/;
     var emailchecker = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-    var phonechecker = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
+    var phonechecker = /^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$/;
     var passchecker = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
     if (namechecker.test(uname)) {
@@ -40,5 +40,5 @@ function validate() {
         document.getElementById('passerr').innerHTML = "*Invalid password";
         return false;
     }
-
 }
+
