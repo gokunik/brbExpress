@@ -42,7 +42,8 @@ function validate() {
     }
 }
 
-//login page validation using AJAX
+
+//Login page validation using AJAX
 var btnClicked = function (){
         
     console.log('Btn Fired');
