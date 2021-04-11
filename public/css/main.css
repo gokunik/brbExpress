@@ -11,12 +11,11 @@ html {
 
 /* Root variables  */
 :root {
-
   /* Styles for scrollbar ( Does not work in every broswer ) */
   --scrollbar-track-color: transparent;
-  --scrollbar-color: rgba(46, 204, 113,1.0);
-  --scrollbar-size: .4rem;
-  --scrollbar-minlength: 1.4rem; 
+  --scrollbar-color: rgba(46, 204, 113, 1);
+  --scrollbar-size: 0.4rem;
+  --scrollbar-minlength: 1.4rem;
 }
 
 ::selection {
@@ -30,7 +29,7 @@ html {
 
 /* Global styles for scrollbar */
 *::-webkit-scrollbar {
-  background-color: rgba(52, 73, 94,.9);
+  background-color: rgba(52, 73, 94, 0.9);
   height: 10px;
   width: var(--scrollbar-size);
 }
@@ -49,24 +48,25 @@ html {
 }
 /* ***************************************** */
 
-
 /* Global styles */
 
-*
-{
-  margin: 0;
-  padding: 0;
+*,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+  padding: 0px;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  
 }
 
-
-body
-{
+body {
   position: relative;
-  
 }
 .btn,
 .btn:focus,
@@ -81,5 +81,5 @@ a {
 
 a:hover {
   text-decoration: none !important;
-  color: rgb5(255, 99, 71,.8);
+  color: rgb5(255, 99, 71, 0.8);
 }

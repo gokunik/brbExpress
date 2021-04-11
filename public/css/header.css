@@ -1,14 +1,11 @@
 /* ================================================== */
 
-
-
 #navbarSupportedContent .navbar-nav .activeLink:visited {
   color: grey !important;
 }
 
-.abc
-{
-	height: 120vh;
+.abc {
+  height: 120vh;
 }
 header {
   font-family: "Poppins", sans-serif;
@@ -31,7 +28,6 @@ header {
 #infoHeader .infoSec1 div {
   padding: 0px 10px;
 }
-
 
 .infoSec2 {
   gap: 20px;
@@ -57,7 +53,6 @@ header {
   box-shadow: 0 10px 30px 0 rgba(138, 155, 165, 0.2);
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  
 }
 .start-header.scroll-on {
   box-shadow: 0 5px 20px 0 rgba(138, 155, 165, 0.15);
@@ -69,7 +64,6 @@ header {
 .navigation-wrap {
   -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
-  
 }
 .stickyNavbar {
   position: fixed;
@@ -122,23 +116,23 @@ header {
 .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-color: transparent;
 }
-.nav-link {
+header .nav-link {
   color: #212121 !important;
   font-weight: 500;
   transition: all 200ms linear;
 }
-.nav-item:hover .nav-link {
+header .nav-item:hover .nav-link {
   color: #8167a9 !important;
 }
-.nav-item.active .nav-link {
+header .nav-item.active .nav-link {
   color: #777 !important;
 }
-.nav-link {
+header .nav-link {
   position: relative;
   padding: 5px 0 !important;
   display: inline-block;
 }
-.nav-item:after {
+header .nav-item:after {
   position: absolute;
   bottom: -5px;
   left: 0;
@@ -149,14 +143,14 @@ header {
   opacity: 0;
   transition: all 200ms linear;
 }
-.nav-item:hover:after {
+header .nav-item:hover:after {
   bottom: 0;
   opacity: 1;
 }
-.nav-item .active:hover:after {
+header .nav-item .active:hover:after {
   opacity: 0;
 }
-.nav-item {
+header .nav-item {
   position: relative;
   transition: all 200ms linear;
 }
@@ -168,7 +162,7 @@ header {
   transition: all 200ms linear;
 }
 
-.nav-item .dropdown-menu {
+header .nav-item .dropdown-menu {
   transform: translate3d(0, 10px, 0);
   visibility: hidden;
   opacity: 0;
@@ -178,7 +172,7 @@ header {
   margin: 0;
   transition: all 200ms linear;
 }
-.nav-item.show .dropdown-menu {
+header .nav-item.show .dropdown-menu {
   opacity: 1;
   visibility: visible;
   max-height: 999px;
@@ -236,10 +230,10 @@ header {
   .infoSec2 {
     justify-content: space-between;
   }
-  .nav-item:after {
+  header .nav-item:after {
     display: none;
   }
-  .nav-item::before {
+  header .nav-item::before {
     position: absolute;
     display: block;
     top: 15px;
