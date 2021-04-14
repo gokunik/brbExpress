@@ -18,19 +18,24 @@
 
         <!-- section 2 of secondary header -->
         <div class="infoSec2 px-2 flex-fill d-flex flex-wrap">
-            <button type="button" id="donateBtn" class="btn btn-warning" data-toggle="modal" data-target="donateModal">
+            <button type="button" id="donateBtn" class="btn btn-warning" data-toggle="modal" data-target="#donateModal">
                 Donate
             </button>
+
+            {{!-- Testing code --}}
             <div class="btn-group d-flex">
-                <button type="button" id="loginBtn" class="btn btn-info" data-toggle="modal" data-target="#loginModal">
+                <button type="button" id="loginBtn" class="btn btn-info" data-toggle="modal" data-target="#Modal"
+                    onclick="login()">
                     Login
                 </button>
 
-                <button type="button" id="registerBtn" class="btn btn-info" data-toggle="modal"
-                    data-target="#registerModal">
+                <button type="button" id="registerBtn" class="btn btn-info" data-toggle="modal" data-target="#Modal"
+                    onclick="register()">
                     Register
                 </button>
             </div>
+            {{!-- Testing code --}}
+
         </div>
     </div>
 
@@ -79,30 +84,40 @@
 
     <!-- End of the primary menu -->
 
-    <!-- Login and Register Modal -->
-    <div class="modal fade" id="loginModal" #loginModal>
-        <div class="modal-dialog modal-dialog-centered">
+    {{!-- *************************************************************************************** --}}
+
+    <!-- Login and Register -->
+    <template>
+        {{>login}}
+    </template>
+
+    <template>
+        {{>register}}
+    </template>
+
+    {{!-- Modal to show login and register partial --}}
+    <div class="modal fade" id="Modal">
+        <div class="modal-dialog  modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal">
                     <i class="fa fa-times-circle"></i>
                 </button>
                 <!-- Modal body -->
-                <div class="modal-body">
-                    {{>login}}
-                </div>
+                <div class="modal-body" id="modalBody"></div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="registerModal" #registerModal>
-        <div class="modal-dialog  modal-dialog-scrollable">
+    {{!-- Modal for donate --}}
+    <div class="modal fade" id="donateModal">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
                 <button type="button" class="close" data-dismiss="modal">
                     <i class="fa fa-times-circle"></i>
                 </button>
                 <!-- Modal body -->
-                <div class="modal-body">
-                    {{>register}}
+                <div class="modal-body" id="modalBody">
+                    {{>donate}}
                 </div>
             </div>
         </div>
