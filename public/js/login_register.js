@@ -1,36 +1,5 @@
 // validation
 
-// for login 
-var btnClicked = function () {
-
-    console.log('Btn Fired');
-
-    var http = new XMLHttpRequest();
-    var data =
-    {
-        'email': document.getElementById('loginEmail').value,
-        'password': document.getElementById('loginPassword').value
-    };
-    http.open('post', 'http://localhost:3000/login');
-    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    console.log('request initialized')
-    http.send("email=" + data.email + "&password=" + data.password);
-    console.log('request sent')
-    http.onreadystatechange = function (ev) {
-        console.log(http.readyState);
-    }
-    http.onloadend = function (ev) {
-        console.log('Load ended');
-        console.log(http.responseText);
-        if (http.responseText == 'invalid') {
-            document.getElementById('invalidDiv').style.setProperty('display', 'block');
-        } else {
-            window.open(http.responseText, "_self");
-        }
-    }
-}
-
-
 // for registeration 
 // todo - needed work
 function validate() {
@@ -75,31 +44,31 @@ function validate() {
 
 
 //Login page validation using AJAX
-var btnClicked = function (){
-        
+var btnClicked = function () {
+
     console.log('Btn Fired');
-    
-    var http =new XMLHttpRequest();
-    var data  = 
+
+    var http = new XMLHttpRequest();
+    var data =
     {
-        'email': document.getElementById('loginEmail').value, 
+        'email': document.getElementById('loginEmail').value,
         'password': document.getElementById('loginPassword').value
     };
     http.open('post', 'http://localhost:3000/login');
-    http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     console.log('request initialized')
     http.send("email=" + data.email + "&password=" + data.password);
     console.log('request sent')
-    http.onreadystatechange = function(ev){
+    http.onreadystatechange = function (ev) {
         console.log(http.readyState);
     }
-    http.onloadend = function (ev){
+    http.onloadend = function (ev) {
         console.log('Load ended');
         console.log(http.responseText);
-        if(http.responseText == 'invalid'){
+        if (http.responseText == 'invalid') {
             document.getElementById('invalidDiv').style.setProperty('display', 'block');
         } else {
-            window.open(http.responseText,"_self");
+            window.open(http.responseText, "_self");
         }
     }
 }
