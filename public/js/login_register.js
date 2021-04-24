@@ -44,10 +44,7 @@ function validate() {
 
 
 //Login page validation using AJAX
-var btnClicked = function () {
-
-    console.log('Btn Fired');
-
+  var validateForm = function (){
     var http = new XMLHttpRequest();
     var data =
     {
@@ -71,4 +68,5 @@ var btnClicked = function () {
             window.open(http.responseText, "_self");
         }
     }
+    
 }
