@@ -14,7 +14,51 @@
 {{!-- tabs content --}}
 
 <div class="tab-content">
-    <div class="tab-pane container active" id="donate">Donate</div>
+    <div class="tab-pane container active" id="donate">
+        <input type="text" name="name" id="name" placeholder="Enter name">
+        <br>
+        <input type="text" name="email" id="email" placeholder="Email">
+        <br>
+        <input type="text" name="amount" id="amount" placeholder="Amount">
+        <br>
+        <input type="text" name="mobile" id="mobile" placeholder="Mobile">
+        <br>
+        <button onclick="initiatePayment()">
+            Donate Now
+        </button>
+    </div>
     <div class="tab-pane container fade" id="paytm">Paytm</div>
     <div class="tab-pane container fade" id="google">Google Pay</div>
 </div>
+
+<script>
+    function initiatePayment(){
+        var http = new XMLHttpRequest();
+        http.open("post", "https://www.archerstack.com/payments/pay-online");
+        var customerName = document.getElementById('name').value;
+        var customerId = document.getElementById('email').value;
+        var amount = document.getElementById('amount').value;
+        var mobile = document.getElementById('mobile').value;
+        var data = "customerName="+customerName+"&customerId="+customerId+"&amount="+amount+"&mobile="+mobile;
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send(data);
+        http.onloadend = (e)=>{
+            if(http.status == '200'){
+                createPaymentLink(http.responseText);
+            }
+            else alert(http.responseText);
+        }
+    }
+    function createPaymentLink(paymentId){
+        var http = new XMLHttpRequest();
+        http.open("post", "https://www.archerstack.com/payments/create-payment-link");
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.send("paymentId=" + paymentId);
+        http.onloadend = (e)=>{
+            if(http.status == '200'){
+                window.open(http.responseText);
+            }
+            else alert(http.responseText);
+        }
+    }
+</script>
