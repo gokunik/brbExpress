@@ -3,6 +3,7 @@ const router = new express.Router();
 
 const User = require("../models/User");  //User schema is called here
 const Volunteer = require("../models/Volunteer"); //Volunteer Schema is called here  
+const Contact = require("../models/contactUs"); //Contact Us Schema is called here
 
 // Website routes
 router.get("/", (req, res) => {
@@ -87,5 +88,21 @@ router.post('/login', async(req, res) => {
        res.send("invalid");
     }
 });
+
+router.post("/contact",async(req,res) => {
+    try {
+        const newContact = new Contact({
+            name:req.body.senderName,
+            email:req.body.senderEmail,
+            phone:req.body.senderContact,
+            message:req.body.message
+        });
+        const saveContact = await newContact.save();
+        console.log(newContact);
+        res.render("contact");
+    } catch (e) {
+        console.log(e);
+    }
+})
 
 module.exports = router;

@@ -30,21 +30,25 @@
             <div class="app-contact">CONTACT INFO : +91 9451988451</div>
           </div>
           <div class="screen-body-item">
-            <form class="app-form">
+            <form class="app-form" action="/contact" method="POST">
               <div class="app-form-group">
-                <input class="app-form-control" name="senderName" placeholder="NAME">
+                <input type="text" class="app-form-control" id="name" name="senderName" placeholder="NAME" required>
+                 <span id="nameerr"></span>
               </div>
               <div class="app-form-group">
-                <input class="app-form-control" name="senderEmail" placeholder="EMAIL">
+                <input type="email" class="app-form-control" id="email" name="senderEmail" placeholder="EMAIL" required>
+                 <span id="emailerr"></span>
               </div>
               <div class="app-form-group">
-                <input class="app-form-control" name="senderContact" placeholder="CONTACT NO">
+                <input type="tel" class="app-form-control" id="phone" name="senderContact" placeholder="CONTACT NO" required>
+                 <span id="phoneerr"></span>
               </div>
               <div class="app-form-group message">
-                <input class="app-form-control" name="message" placeholder="MESSAGE">
+                <input type="text" class="app-form-control" id="message" name="message" placeholder="MESSAGE" required>
+                 <span id="msgerr"></span>
               </div>
               <div class="app-form-group buttons">
-                <button class="app-form-button" name="submitBtn">SEND</button>
+                <button type="submit" class="app-form-button" name="submitBtn">SEND</button>
               </div>
             </form>
           </div>
