@@ -89,7 +89,8 @@ router.post('/login', async(req, res) => {
     }
 });
 
-router.post("/contact",async(req,res) => {
+//This route is for storing the contact us form info to database.
+router.post("/contactUs",async(req,res) => {
     try {
         const newContact = new Contact({
             name:req.body.senderName,
@@ -99,9 +100,9 @@ router.post("/contact",async(req,res) => {
         });
         const saveContact = await newContact.save();
         console.log(newContact);
-        res.render("contact");
+        res.send("submitted");
     } catch (e) {
-        console.log(e);
+        res.send("submittted");
     }
 })
 
