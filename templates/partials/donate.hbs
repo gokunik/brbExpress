@@ -3,17 +3,17 @@
         <div class="card-header text-center">Donate</div>
         <div class="card-body">
             <div class="card-text">
-                <form class="form" action="/login" method="POST">
+                <div class="form">
                     <input type="text" class="form-control mb-3" name="name" id="name" placeholder="Name" required>
-                    <input type="text" class="form-control mb-3" name="email" id="email" placeholder="Email" required>
-                    <input type="text" class="form-control mb-3" name="amount" id="amount" placeholder="Amount"
+                    <input type="email" class="form-control mb-3" name="email" id="email" placeholder="Email" required>
+                    <input type="number" class="form-control mb-3" name="amount" id="amount" placeholder="Amount"
                         required>
-                    <input type="text" class="form-control mb-3" name="mobile" id="mobile" placeholder="Mobile"
+                    <input type="number" class="form-control mb-3" name="mobile" id="mobile" placeholder="Mobile"
                         required>
                     <button onclick="initiatePayment()" class="btn btn-info">
                         Donate Now
                     </button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
