@@ -1,0 +1,16 @@
+body {
+  background: rgb(44, 222, 211);
+  background: linear-gradient(
+    351deg,
+    rgba(44, 222, 211, 1) 0%,
+    rgba(156, 88, 184, 1) 100%
+  );
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.container {
+  margin: auto;
+}

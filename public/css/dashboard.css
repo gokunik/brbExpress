@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap");
+
+body {
+  background: rgb(75, 90, 104);
+
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+#summaryCard {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+}
+
+#infoSection {
+  gap: 10px;
+}
+
+#infoSection > .card {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  #infoSection {
+    gap: 45px;
+    flex-wrap: wrap;
+  }
+}
+
+.collapse {
+  font-size: 14px !important;
+  text-align: justify;
+}

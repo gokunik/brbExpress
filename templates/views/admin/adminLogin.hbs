@@ -16,12 +16,46 @@
 
     {{!-- css --}}
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/adminLogin.css">
+
+    {{!-- Font awesome icon cdn --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     {{!-- --}}
 </head>
 
 <body>
+    <section class="container d-flex justify-content-center">
+        <div class="row no-gutters">
+            <div class="card">
+                <div class="card-header font-weight-bold text-dark text-center">
+                    Login
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                            </div>
+                            <input type="text" name="username" class="form-control" placeholder="Username">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                            </div>
+                            <input type="password" name="password" class="form-control" placeholder="password">
+                        </div>
 
+                        <div class="text-center">
+                            <button class="btn btn-danger">
+                                Login
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>

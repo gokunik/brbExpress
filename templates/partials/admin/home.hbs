@@ -1,0 +1,189 @@
+<section class="container py-4">
+    <h5 class="text-center text-white">
+        Welcome to the <span class="text-warning">Dashboard</span>
+    </h5>
+</section>
+
+{{!-- Summary section --}}
+<section class="mb-5">
+    <div class="card border-0" id="summaryCard">
+        <div class="card-header bg-info d-flex justify-content-between align-items-center">
+            <h5 class="text-white">Summary</h5>
+            <div class="form-group mb-0 pb-0">
+                <select class="form-control form-control-sm" id="filter">
+                    <option value="">Filter</option>
+                    <option>Today</option>
+                    <option>Week</option>
+                    <option>Month</option>
+                    <option>year</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card-body p-0">
+            <ul class="list-group list-group-horizontal flex-wrap justify-content-start">
+                <li class="list-group-item flex-fill d-flex justify-content-between">
+                    <span class="text-dark">New Message </span>
+                    <div class="text-center">
+                        <span class="badge badge-primary badge-pill">5</span>
+                    </div>
+                </li>
+                <li class="list-group-item flex-fill d-flex justify-content-between">
+                    <span class="text-dark">User Visited </span>
+                    <div class="text-center">
+                        <span class="badge badge-primary badge-pill">100</span>
+                    </div>
+                </li>
+                <li class="list-group-item flex-fill d-flex justify-content-between">
+                    <span class="text-dark">User Registered </span>
+                    <div class="text-center">
+                        <span class="badge badge-primary badge-pill">20</span>
+                    </div>
+                </li>
+                <li class="list-group-item flex-fill d-flex justify-content-between">
+                    <span class="text-dark">New Donations </span>
+                    <div class="text-center">
+                        <span class="badge badge-primary badge-pill">15</span>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+{{!-- --}}
+
+<section class="mb-5">
+    <div class="card border-0">
+        <div class="card-header bg-info">
+            <h5 class="text-white">
+                New Announcement
+            </h5>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="input-group mb-3">
+                    <input type="text" name="newAnnouncement" class="form-control" placeholder="Enter Information">
+                    <div class="input-group-append">
+                        <button class="btn btn-danger" type="submit">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="mb-5 d-flex align-items-start" id="infoSection">
+    <div class="card border-0 ">
+        <div class="card-header bg-success d-flex justify-content-between align-items-center">
+            <h5 class="text-white d-none d-md-block ">Messages</h5>
+            <h6 class="text-white d-md-none">Messages</h6>
+            <div class="form-group input-group input-group-sm mb-0 pb-0 w-50">
+                <input type="text" class="form-control form-control-sm" placeholder="search">
+                <div class="input-group-prepend">
+                    <button class="input-group-text btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-body p-0">
+            <ul class="list-group">
+                {{!-- --}}
+                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
+                    data-target="#message1">
+                    <h6 class="text-dark">
+                        Message From : &nbsp; Varun Kumar
+                    </h6>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </li>
+                <div id="message1" class="collapse p-3">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde corrupti dolore neque, numquam sint,
+                    ducimus suscipit dolor sequi consectetur quod aspernatur ipsa atque tenetur nesciunt expedita fugit
+                    minus provident quisquam voluptatum, velit id sapiente fuga. Debitis, deleniti? Eos, assumenda ex.
+                </div>
+                {{!-- --}}
+                {{!-- --}}
+                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
+                    data-target="#message2">
+                    <h6 class="text-dark">
+                        Message From : &nbsp; Anish punia
+                    </h6>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </li>
+                <div id="message2" class="collapse p-3">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde corrupti dolore neque, numquam sint,
+                    ducimus suscipit dolor sequi consectetur quod aspernatur ipsa atque tenetur nesciunt expedita fugit
+                    minus provident quisquam voluptatum, velit id sapiente fuga. Debitis, deleniti? Eos, assumenda ex.
+                </div>
+                {{!-- --}}
+                {{!-- --}}
+                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
+                    data-target="#message3">
+                    <h6 class="text-dark">
+                        Message From : &nbsp; Chirag sharma
+                    </h6>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </li>
+                <div id="message3" class="collapse p-3">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde corrupti dolore neque, numquam sint,
+                    ducimus suscipit dolor sequi consectetur quod aspernatur ipsa atque tenetur nesciunt expedita fugit
+                    minus provident quisquam voluptatum, velit id sapiente fuga. Debitis, deleniti? Eos, assumenda ex.
+                </div>
+                {{!-- --}}
+            </ul>
+        </div>
+    </div>
+    <div class="card border-0 ">
+        <div class="card-header bg-success d-flex justify-content-between align-items-center">
+            <h5 class="text-white">
+                Users
+            </h5>
+            <div class="form-group mb-0 pb-0">
+                <select class="form-control form-control-sm" id="filter">
+                    <option value="">Filter</option>
+                    <option>Users</option>
+                    <option>Volunteer</option>
+                </select>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <ul class="list-group">
+                {{!-- --}}
+                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
+                    data-target="#volunteer0">
+                    <h6 class="text-dark">
+                        Name : &nbsp; Karan Verma
+                    </h6>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </li>
+                <div id="volunteer0" class="collapse p-3">
+                </div>
+                {{!-- --}}
+                {{!-- --}}
+                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
+                    data-target="#volunteer0">
+                    <h6 class="text-dark">
+                        Name : &nbsp; Hanish khan
+                    </h6>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </li>
+                <div id="volunteer0" class="collapse p-3">
+                </div>
+                {{!-- --}}
+                {{!-- --}}
+                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
+                    data-target="#volunteer0">
+                    <h6 class="text-dark">
+                        Name : &nbsp; Manmohan singh
+                    </h6>
+                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </li>
+                <div id="volunteer0" class="collapse p-3">
+                </div>
+                {{!-- --}}
+            </ul>
+        </div>
+    </div>
+</section>
