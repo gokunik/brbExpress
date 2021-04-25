@@ -3,6 +3,7 @@ const router = new express.Router();
 
 const User = require("../models/User");  //User schema is called here
 const Volunteer = require("../models/Volunteer"); //Volunteer Schema is called here  
+const Contact = require("../models/contactUs"); //Contact Us Schema is called here
 
 // Website routes
 router.get("/", (req, res) => {
@@ -97,5 +98,22 @@ router.post('/login', async (req, res) => {
         res.send("invalid");
     }
 });
+
+//This route is for storing the contact us form info to database.
+router.post("/contactUs",async(req,res) => {
+    try {
+        const newContact = new Contact({
+            name:req.body.senderName,
+            email:req.body.senderEmail,
+            phone:req.body.senderContact,
+            message:req.body.message
+        });
+        const saveContact = await newContact.save();
+        console.log(newContact);
+        res.send("submitted");
+    } catch (e) {
+        res.send("submittted");
+    }
+})
 
 module.exports = router;
