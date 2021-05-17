@@ -17,3 +17,9 @@
   border-left: none;
   border-right: none;
 }
+
+@media (max-width: 1200px) {
+  #tabs .nav-link {
+    font-size: 10px !important;
+  }
+}

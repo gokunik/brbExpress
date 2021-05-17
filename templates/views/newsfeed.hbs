@@ -8,7 +8,7 @@
     <title>News Feed</title>
     <link rel="stylesheet" href="css/newsfeed.css">
     {{>headerInlcudes}}
-
+    <script src="https://apis.google.com/js/platform.js"></script>
 </head>
 
 <body>
@@ -74,27 +74,54 @@
                             Updates
                         </div>
                         <div class="card-body px-0">
-                            <ul class="nav nav-tabs justify-content-around">
-                                <li class="nav-item ">
-                                    <a class="nav-link text-danger" data-toggle="tab" href="#insta">Instagram</a>
+                            <ul class="nav nav-tabs justify-content-around" id="tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link text-info active" data-toggle="tab" href="#fb">Facebook</a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="nav-link text-info" data-toggle="tab" href="#fb">Facebook</a>
+                                    <a class="nav-link text-info" data-toggle="tab" href="#twitter">Twitter</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link text-info" data-toggle="tab" href="#youtube">Youtube</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link text-info" data-toggle="tab" href="#insta">Instagram</a>
                                 </li>
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane container active" id="insta">
-                                    <div id="instagram-feed" class="mt-2">
-                                    </div>
-                                </div>
-                                <div class="tab-pane text-center fade" id="fb">
+                                <div class="tab-pane text-center active" id="fb">
                                     <iframe class="mt-4"
                                         src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbandarotibankbanda&tabs=timeline&width=250&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
                                         width="250" height="500" style="border:none;overflow:hidden" scrolling="no"
-                                        frameborder="0" allowfullscreen="true"
-                                        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                                        frameborder="0" allowfullscreen="true"></iframe>
+                                </div>
+                                <div class="tab-pane text-center" id="twitter" style="height: 530px; overflow-y: auto;">
+                                    <a class="twitter-timeline"
+                                        href="https://twitter.com/Rotibankbanda?ref_src=twsrc%5Etfw">Tweets by
+                                        Rotibankbanda</a>
+                                    <script async src="https://platform.twitter.com/widgets.js"
+                                        charset="utf-8"></script>
+                                </div>
+                                <div class="tab-pane" id="youtube">
+                                    <div class="container text-center pt-2">
+                                        <h6 class="text-info">
+                                            Stay connect to our youtube channel
+                                        </h6>
+                                    </div>
+                                    <div class="container d-flex justify-content-center pt-3 text-black" >
+                                        <div style="height: 50px; width: 200px;" class="g-ytsubscribe" data-channelid="UC-zKAI_v4sl49ZWjLOTNzZg" data-layout="full"  data-count="default"></div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane " id="insta">
+                                    <div class="text-center pt-4">
+                                        <a href="https://www.instagram.com/banda_roti_bankbanda/" target="_blank">
+                                            <button class="btn insta-bg text-white">Follow us on instagram</button>
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -107,29 +134,7 @@
 
     {{>footer}}
 </body>
-{{!-- Following code is for accessing instagram feed --}}
-<script src="js/insta.js"></script>
-<script>
-    (function () {
-        new InstagramFeed({
-            'username': 'banda_roti_bankbanda',
-            'container': document.getElementById("instagram-feed"),
-            'display_profile': true,
-            'display_biography': true,
-            'display_gallery': true,
-            'display_captions': true,
-            'max_tries': 8,
-            'callback': null,
-            'styling': true,
-            'items': 8,
-            'items_per_row': 2,
-            'margin': 2,
-            'lazy_load': true,
-            'on_error': console.error,
-            'host': "https://images" + ~~(Math.random() * 3333) + "-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=https://www.instagram.com/",
-            'cache_time': 660
-        });
-    })();
-</script>
+
+{{!-- old instagram feed integration method removed as it is not working anymore --}}
 
 </html>
