@@ -32,18 +32,18 @@
                     Login
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form action="/admin" method="POST">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-user"></i></span>
                             </div>
-                            <input type="text" name="username" class="form-control" placeholder="Username">
+                            <input type="text" id="name" name="username" class="form-control" placeholder="Username" required>
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
                             </div>
-                            <input type="password" name="password" class="form-control" placeholder="password">
+                            <input type="password" name="password" id="password" class="form-control" placeholder="password" required>
                         </div>
 
                         <div class="text-center">

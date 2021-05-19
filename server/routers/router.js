@@ -145,4 +145,17 @@ router.post('/anno', async(req, res) => {
     }
 });
 
+//this function is for admin login page validation
+router.post("/admin" ,async(req,res) => {
+    try {
+        if(req.body.username === "axle" && req.body.password === "blaze"){
+            res.render("admin/dashboard");
+        } else {
+            res.send("invalid");
+        }
+    } catch (e) {
+        res.send("invalid");
+    }
+})
+
 module.exports = router;
