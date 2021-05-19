@@ -120,7 +120,7 @@ router.post("/contactUs",async(req,res) => {
         });
         const saveContact = await newContact.save();
         console.log(newContact);
-        res.send("submitted");
+        res.render("contact");
     } catch (e) {
         console.log("Error!!");
     }
