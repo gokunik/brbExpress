@@ -4,14 +4,21 @@ const router = new express.Router();
 const User = require("../models/User");  //User schema is called here
 const Volunteer = require("../models/Volunteer"); //Volunteer Schema is called here  
 const Contact = require("../models/contactUs"); //Contact Us Schema is called here
+const Announce = require("../models/announ");//Announcement Schema
 
 // Website routes
 router.get("/", (req, res) => {
     res.render("index", failed = '');
 });
 
-router.get("/newsfeed", (req, res) => {
-    res.render("newsfeed")
+router.get("/newsfeed", async(req, res) => {
+    try {
+        const anno = await Announce.find({}).sort({_id:-1}).limit(1);
+        console.log(anno);
+        res.render("newsfeed",{data:anno});
+    } catch (e) {
+        console.log("Error!!");
+    }
 });
 
 router.get("/about", (req, res) => {
@@ -38,7 +45,10 @@ router.get("/dashboard", (req, res) => {
     res.render("./admin/dashboard")
 });
 
-
+//Testing announcement api
+router.get('/ann',(req, res) => {
+    res.render("announce");
+});
 
 router.get("*", (req, res) => {
     res.render("404")
@@ -110,9 +120,41 @@ router.post("/contactUs",async(req,res) => {
         });
         const saveContact = await newContact.save();
         console.log(newContact);
-        res.send("submitted");
+        res.render("contact");
     } catch (e) {
-        res.send("submittted");
+        console.log("Error!!");
+    }
+});
+
+//Storing the announcement from admin portal to database 
+router.post('/anno', async(req, res) => {
+    try {
+        const newAnn = new Announce({
+            announce:req.body.announ
+        });
+        const saveAnnoun = await newAnn.save(function(err,newAnn){
+            if(err){
+                console.log(err);
+            } else {
+                console.log(newAnn);
+            }
+        });
+        res.render("newsfeed",{data: newAnn});
+    } catch (e) {
+        console.log("Error!!");
+    }
+});
+
+//this function is for admin login page validation
+router.post("/admin" ,async(req,res) => {
+    try {
+        if(req.body.username === "axle" && req.body.password === "blaze"){
+            res.render("admin/dashboard");
+        } else {
+            res.send("invalid");
+        }
+    } catch (e) {
+        res.send("invalid");
     }
 })
 
