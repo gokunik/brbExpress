@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/Banda-Roti-Bank", {
+mongoose.connect("mongodb+srv://axle:blaze@cluster0.aa0pg.mongodb.net/Banda-Roti-Bank?retryWrites=true&w=majority", {
     useCreateIndex: true,
     useFindAndModify: false,
     useNewUrlParser: true,
