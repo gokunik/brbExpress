@@ -57,33 +57,54 @@ router.get("*", (req, res) => {
 //This function will register user/volunteer in our website and store their data in database.
 router.post("/register", async (req, res) => {
     try {
-        if (req.body.optradio == 'user') {
-            const newUser = new User({
-                name: req.body.name,
-                phone: req.body.phone,
-                email: req.body.email,
-                password: req.body.password
-            });
-            const StoreUser = await newUser.save();
-            console.log(newUser);
-            res.render("index");
-        } else if (req.body.optradio == 'volunteer') {
-            const newVolunteer = new Volunteer({
-                name: req.body.name,
-                phone: req.body.phone,
-                email: req.body.email,
-                password: req.body.password
-            });
-            const StoreVolunteer = await newVolunteer.save();
-            console.log(newVolunteer);
-            res.render("index");
-        } else {
-            res.status(400).send("Bad request");
+        User.findOne({ email: req.body.email }, function(err, user) {
+            if(err) {
+               console.log(err);//handle error here
+            }
+            //if a user was found, that means the user's email matches the entered email
+            if (user) {
+                res.json("Email already exists as user");
+            } else {
+                Volunteer.findOne({email:req.body.email},function(err,usere) {
+                if(err) {
+                    console.log(err);
+                }
+                if(usere) {
+                    res.json("Email already exists as volunteer");
+                } else  {
+                    //code if no user with entered email was found
+                    if (req.body.optradio == 'user') {
+                        const newUser = new User({
+                            name: req.body.name,
+                            phone: req.body.phone,
+                            email: req.body.email,
+                            password: req.body.password
+                        });
+                        const StoreUser = newUser.save();
+                        console.log(newUser);
+                        res.render("index");
+                    } else if (req.body.optradio == 'volunteer') {
+                        const newVolunteer = new Volunteer({
+                            name: req.body.name,
+                            phone: req.body.phone,
+                            email: req.body.email,
+                            password: req.body.password
+                        });
+                        const StoreVolunteer = newVolunteer.save();
+                        console.log(newVolunteer);
+                        res.render("index");
+                    } else {
+                        res.status(400).send("Bad request");
+                    }
+                }
+            })
+        } 
+
+        })
+     } catch (e) {
+            res.status(400).send(e);
         }
-    } catch (e) {
-        res.status(400).send(e);
-    }
-});
+    });
 
 router.post('/login', async (req, res) => {
     try {
