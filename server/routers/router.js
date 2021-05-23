@@ -1,10 +1,24 @@
 const express = require("express");
 const router = new express.Router();
+const nodemailer = require("nodemailer");
+
 
 const User = require("../models/User");  //User schema is called here
 const Volunteer = require("../models/Volunteer"); //Volunteer Schema is called here  
 const Contact = require("../models/contactUs"); //Contact Us Schema is called here
 const Announce = require("../models/announ");//Announcement Schema
+
+//Initiating mailing Service 
+const transporter = nodemailer.createTransport({
+    service:'gmail',
+    tls: {
+        rejectUnauthorized: false
+    },
+    auth: {
+        user:'krpalashish842@gmail.com',
+        pass:'axleblaze842'
+    }
+})
 
 // Website routes
 router.get("/", (req, res) => {
@@ -57,33 +71,85 @@ router.get("*", (req, res) => {
 //This function will register user/volunteer in our website and store their data in database.
 router.post("/register", async (req, res) => {
     try {
-        if (req.body.optradio == 'user') {
-            const newUser = new User({
-                name: req.body.name,
-                phone: req.body.phone,
-                email: req.body.email,
-                password: req.body.password
-            });
-            const StoreUser = await newUser.save();
-            console.log(newUser);
-            res.render("index");
-        } else if (req.body.optradio == 'volunteer') {
-            const newVolunteer = new Volunteer({
-                name: req.body.name,
-                phone: req.body.phone,
-                email: req.body.email,
-                password: req.body.password
-            });
-            const StoreVolunteer = await newVolunteer.save();
-            console.log(newVolunteer);
-            res.render("index");
-        } else {
-            res.status(400).send("Bad request");
+        User.findOne({ email: req.body.email }, function(err, user) {
+            if(err) {
+               console.log(err);//handle error here
+            }
+            //if a user was found, that means the user's email matches the entered email
+            if (user) {
+                res.json("Email already exists as user");
+            } else {
+                Volunteer.findOne({email:req.body.email},function(err,usere) {
+                if(err) {
+                    console.log(err);
+                }
+                if(usere) {
+                    res.json("Email already exists as volunteer");
+                } else  {
+                    //code if no user with entered email was found
+                    if (req.body.optradio == 'user') {
+                        const newUser = new User({
+                            name: req.body.name,
+                            phone: req.body.phone,
+                            email: req.body.email,
+                            password: req.body.password
+                        });
+                        const StoreUser = newUser.save();
+                        console.log(newUser);
+                        res.render("index");
+                
+                
+                    //Sending email to registered emailId
+                    transporter.sendMail({
+                        from:'krpalashish842@gmail.com',
+                        to:req.body.email,
+                        subject:'Test Mail',
+                        text:'Welcome to Banda Roti Bank Revolution'
+                    },(error,response)=> {
+                        if(error)
+                          console.log('Error',error);
+                        else
+                          console.log('Mail sent, ', response);
+                    })
+
+
+                    } else if (req.body.optradio == 'volunteer') {
+                        const newVolunteer = new Volunteer({
+                            name: req.body.name,
+                            phone: req.body.phone,
+                            email: req.body.email,
+                            password: req.body.password
+                        });
+                        const StoreVolunteer = newVolunteer.save();
+                        console.log(newVolunteer);
+                        res.render("index");
+                        
+                        //Sending email to registered emailId
+                     transporter.sendMail({
+                        from:'krpalashish842@gmail.com',
+                        to:req.body.email,
+                        subject:'Test Mail',
+                        text:'Welcome to Banda Roti Bank Revolution'
+                    },(error,response)=> {
+                        if(error)
+                          console.log('Error',error);
+                        else
+                          console.log('Mail sent, ', response);
+                    })
+
+                    } else {
+                        res.status(400).send("Bad request");
+                    }
+                    
+                }
+            })
+        } 
+
+        })
+     } catch (e) {
+            res.status(400).send(e);
         }
-    } catch (e) {
-        res.status(400).send(e);
-    }
-});
+    });
 
 router.post('/login', async (req, res) => {
     try {
