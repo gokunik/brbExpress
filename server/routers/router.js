@@ -1,10 +1,24 @@
 const express = require("express");
 const router = new express.Router();
+const nodemailer = require("nodemailer");
+
 
 const User = require("../models/User");  //User schema is called here
 const Volunteer = require("../models/Volunteer"); //Volunteer Schema is called here  
 const Contact = require("../models/contactUs"); //Contact Us Schema is called here
 const Announce = require("../models/announ");//Announcement Schema
+
+//Initiating mailing Service 
+const transporter = nodemailer.createTransport({
+    service:'gmail',
+    tls: {
+        rejectUnauthorized: false
+    },
+    auth: {
+        user:'krpalashish842@gmail.com',
+        pass:'axleblaze842'
+    }
+})
 
 // Website routes
 router.get("/", (req, res) => {
@@ -83,6 +97,22 @@ router.post("/register", async (req, res) => {
                         const StoreUser = newUser.save();
                         console.log(newUser);
                         res.render("index");
+                
+                
+                    //Sending email to registered emailId
+                    transporter.sendMail({
+                        from:'krpalashish842@gmail.com',
+                        to:req.body.email,
+                        subject:'Test Mail',
+                        text:'Welcome to Banda Roti Bank Revolution'
+                    },(error,response)=> {
+                        if(error)
+                          console.log('Error',error);
+                        else
+                          console.log('Mail sent, ', response);
+                    })
+
+
                     } else if (req.body.optradio == 'volunteer') {
                         const newVolunteer = new Volunteer({
                             name: req.body.name,
@@ -93,9 +123,24 @@ router.post("/register", async (req, res) => {
                         const StoreVolunteer = newVolunteer.save();
                         console.log(newVolunteer);
                         res.render("index");
+                        
+                        //Sending email to registered emailId
+                     transporter.sendMail({
+                        from:'krpalashish842@gmail.com',
+                        to:req.body.email,
+                        subject:'Test Mail',
+                        text:'Welcome to Banda Roti Bank Revolution'
+                    },(error,response)=> {
+                        if(error)
+                          console.log('Error',error);
+                        else
+                          console.log('Mail sent, ', response);
+                    })
+
                     } else {
                         res.status(400).send("Bad request");
                     }
+                    
                 }
             })
         } 
