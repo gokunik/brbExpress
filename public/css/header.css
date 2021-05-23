@@ -332,3 +332,19 @@ header #header .nav-item.show .dropdown-menu {
 .btn-group {
   gap: 3px;
 }
+
+/* styling for whatsapp button */
+
+.whatsapp-wrapper {
+  position: fixed;
+  z-index: 999;
+  width: 50px;
+  height: 50px;
+  right: 20px;
+  bottom: 30px;
+  background-color: #4dc247;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}

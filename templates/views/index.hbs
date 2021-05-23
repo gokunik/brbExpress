@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     {{>header}}
 
     {{!-- *********************************************************************************** --}}
@@ -96,7 +97,7 @@
                     <img src="images/home/ngo_img1.jpg" class="img-fluid img-thumbnail d-none d-lg-block" alt="">
                 </div>
                 <div class="contributeBtn mb-lg-0 d-none d-lg-block">
-                    <button class="btn btn-danger">Send
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#donateModal">Send
                         your contribution
                     </button>
                 </div>
@@ -134,8 +135,9 @@
                     </div>
                 </div>
                 <div class="contributeBtn mt-4 mb-lg-0 d-block d-lg-none" style="position: relative;">
-                    <button class="btn btn-danger btn-block" style="z-index: 99;">Send
-                        your contribution
+                    <button type="button" class="btn btn-danger btn-block" style="z-index: 99;" data-toggle="modal"
+                        data-target="#donateModal">
+                        Send your contribution
                     </button>
                 </div>
             </div>
@@ -255,7 +257,7 @@
 
         <div class="row pb-4 flex-wrap justify-content-center no-gutters">
             <div class="col-12 text-center ">
-                <button class="btn btn-dark text-dark">
+                <button type="button" class="btn btn-dark text-dark" data-toggle="modal" data-target="#donateModal">
                     Donate
                 </button>
             </div>

@@ -22,7 +22,7 @@
                 Donate
             </button>
 
-            {{!-- Testing code --}}
+
             <div class="btn-group d-flex">
                 <button type="button" id="loginBtn" class="btn btn-info" data-toggle="modal" data-target="#Modal"
                     onclick="login()">
@@ -34,7 +34,7 @@
                     Register
                 </button>
             </div>
-            {{!-- Testing code --}}
+
 
         </div>
     </div>
@@ -123,3 +123,17 @@
         </div>
     </div>
 </header>
+
+{{!-- whatsapp fixed button --}}
+<section class="whatsapp-wrapper">
+    <div class="whatsapp-container">
+        <a href="https://api.whatsapp.com/send?phone=919451988451" data-toggle="tooltip" data-placement="auto"
+            title="Get a quick reply!" target="_blank">
+            <i class="fa fa-whatsapp fa-2x text-white" aria-hidden="true"></i></a>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
