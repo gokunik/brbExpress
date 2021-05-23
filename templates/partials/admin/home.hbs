@@ -1,4 +1,4 @@
-<section class="container py-4">
+<section class="container py-5">
     <h5 class="text-center text-white">
         Welcome to the <span class="text-warning">Dashboard</span>
     </h5>
@@ -55,25 +55,6 @@
 
 {{!-- --}}
 
-<section class="mb-5">
-    <div class="card border-0">
-        <div class="card-header bg-info">
-            <h5 class="text-white">
-                New Announcement
-            </h5>
-        </div>
-        <div class="card-body">
-            <form action="/anno" method="POST">
-                <div class="input-group mb-3">
-                    <input type="text" name="announ" class="form-control" placeholder="Enter Information" required>
-                    <div class="input-group-append">
-                        <button class="btn btn-danger" type="submit">Add</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</section>
 
 <section class="mb-5 d-flex align-items-start" id="infoSection">
     <div class="card border-0 ">
@@ -90,7 +71,10 @@
 
         <div class="card-body p-0">
             <ul class="list-group">
-                {{!-- --}}
+                {{!-- As of now the below code is static but when it will be connected to the database
+                The data will be displayed using a loop. Below is the template for displaying the data
+                which can be changed later with the dynamic content
+                --}}
                 <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
                     data-target="#message1">
                     <h6 class="text-dark">
@@ -99,34 +83,6 @@
                     <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </li>
                 <div id="message1" class="collapse p-3">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde corrupti dolore neque, numquam sint,
-                    ducimus suscipit dolor sequi consectetur quod aspernatur ipsa atque tenetur nesciunt expedita fugit
-                    minus provident quisquam voluptatum, velit id sapiente fuga. Debitis, deleniti? Eos, assumenda ex.
-                </div>
-                {{!-- --}}
-                {{!-- --}}
-                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
-                    data-target="#message2">
-                    <h6 class="text-dark">
-                        Message From : &nbsp; Anish punia
-                    </h6>
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>
-                </li>
-                <div id="message2" class="collapse p-3">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde corrupti dolore neque, numquam sint,
-                    ducimus suscipit dolor sequi consectetur quod aspernatur ipsa atque tenetur nesciunt expedita fugit
-                    minus provident quisquam voluptatum, velit id sapiente fuga. Debitis, deleniti? Eos, assumenda ex.
-                </div>
-                {{!-- --}}
-                {{!-- --}}
-                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
-                    data-target="#message3">
-                    <h6 class="text-dark">
-                        Message From : &nbsp; Chirag sharma
-                    </h6>
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>
-                </li>
-                <div id="message3" class="collapse p-3">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Unde corrupti dolore neque, numquam sint,
                     ducimus suscipit dolor sequi consectetur quod aspernatur ipsa atque tenetur nesciunt expedita fugit
                     minus provident quisquam voluptatum, velit id sapiente fuga. Debitis, deleniti? Eos, assumenda ex.
@@ -150,7 +106,10 @@
         </div>
         <div class="card-body p-0">
             <ul class="list-group">
-                {{!-- --}}
+                {{!-- As of now the below code is static but when it will be connected to the database
+                The data will be displayed using a loop. Below is the template for displaying the data
+                which can be changed later with the dynamic content
+                --}}
                 <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
                     data-target="#volunteer0">
                     <h6 class="text-dark">
@@ -160,29 +119,7 @@
                 </li>
                 <div id="volunteer0" class="collapse p-3">
                 </div>
-                {{!-- --}}
-                {{!-- --}}
-                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
-                    data-target="#volunteer0">
-                    <h6 class="text-dark">
-                        Name : &nbsp; Hanish khan
-                    </h6>
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>
-                </li>
-                <div id="volunteer0" class="collapse p-3">
-                </div>
-                {{!-- --}}
-                {{!-- --}}
-                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
-                    data-target="#volunteer0">
-                    <h6 class="text-dark">
-                        Name : &nbsp; Manmohan singh
-                    </h6>
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>
-                </li>
-                <div id="volunteer0" class="collapse p-3">
-                </div>
-                {{!-- --}}
+
             </ul>
         </div>
     </div>

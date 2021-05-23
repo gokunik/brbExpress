@@ -1,1 +1,56 @@
-Newsfeed
+<section class="container py-5">
+    <h5 class="text-center text-white">
+        Welcome to the <span class="text-warning">Newsfeed Dashboard</span>
+    </h5>
+</section>
+
+<section class="mb-5">
+    <div class="card border-0">
+        <div class="card-header bg-info">
+            <h5 class="text-white">
+                New Announcement
+            </h5>
+        </div>
+        <div class="card-body">
+            <form action="/anno" method="POST">
+                <div class="input-group mb-3">
+                    <input type="text" name="announ" class="form-control" placeholder="Enter Information" required>
+                    <div class="input-group-append">
+                        <button class="btn btn-danger" type="submit">Add</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+<section class="my-5">
+    <div class="card border-0">
+        <div class="card-header bg-info">
+            <h5 class=" text-white">
+                Announcements
+            </h5>
+        </div>
+        <div class="card-body p-0">
+            <ul class="list-group text-dark">
+                {{#each data}}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <h6 class="text-dark pr-4">
+                        {{announce}}
+                    </h6>
+                    <div>
+                        <form action="" method="post">
+                            <button type="button" data-toggle="tooltip" title="Delete!" data-placement="auto"
+                                class="btn btn-danger">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</section>

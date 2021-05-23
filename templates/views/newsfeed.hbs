@@ -27,13 +27,15 @@
                 </div>
                 <div class="card-body p-0">
                     <ul class="list-group text-dark">
+                        {{#each data}}
                         <li class="list-group-item">
-                            {{#each data}}
+
                             <h6 class="text-dark">
-                                  {{announce}}
+                                {{announce}}
                             </h6>
-                            {{/each}}
+
                         </li>
+                        {{/each}}
                     </ul>
                 </div>
             </div>
@@ -110,8 +112,10 @@
                                             Stay connect to our youtube channel
                                         </h6>
                                     </div>
-                                    <div class="container d-flex justify-content-center pt-3 text-black" >
-                                        <div style="height: 50px; width: 200px;" class="g-ytsubscribe" data-channelid="UC-zKAI_v4sl49ZWjLOTNzZg" data-layout="full"  data-count="default"></div>
+                                    <div class="container d-flex justify-content-center pt-3 text-black">
+                                        <div style="height: 50px; width: 200px;" class="g-ytsubscribe"
+                                            data-channelid="UC-zKAI_v4sl49ZWjLOTNzZg" data-layout="full"
+                                            data-count="default"></div>
                                     </div>
                                 </div>
 
