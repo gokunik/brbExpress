@@ -1,6 +1,7 @@
 const express = require("express");
 const router = new express.Router();
 const nodemailer = require("nodemailer");
+var admintoken;
 
 
 const User = require("../models/User");  //User schema is called here
@@ -28,7 +29,7 @@ router.get("/", (req, res) => {
 
 router.get("/newsfeed", async (req, res) => {
     try {
-        const anno = await Announce.find({}).sort({ _id: -1 }).limit(3);
+        const anno = await Announce.find({}).sort({ _id: -1 }).limit(1);
         res.render("newsfeed", { data: anno });
     } catch (e) {
         console.log("Error!!");
@@ -57,6 +58,7 @@ router.get("/admin-login", (req, res) => {
 });
 
 router.get("/dashboard", (req, res) => {
+    if(req.query.token == admintoken && admintoken!=null)
     res.render("./admin/dashboard")
 });
 
@@ -206,8 +208,7 @@ router.post("/contactUs", async (req, res) => {
             message: req.body.message
         });
         const saveContact = await newContact.save();
-        console.log(newContact);
-        res.render("contact");
+        res.send("saved");
     } catch (e) {
         console.log("Error!!");
     }
@@ -236,13 +237,15 @@ router.post('/anno', async (req, res) => {
 router.post("/admin", async (req, res) => {
     try {
         if (req.body.username === "axle" && req.body.password === "blaze") {
-            res.render("admin/dashboard");
+            admintoken = Math.random() * 100000;
+            res.send(admintoken.toString());
         } else {
             res.send("invalid");
         }
     } catch (e) {
-        res.send("invalid");
+       console.log("invalid");
     }
 })
+
 
 module.exports = router;
