@@ -4,12 +4,11 @@
         <div class="card-body">
             <div class="card-text">
                 <div class="form">
-                    <input type="text" class="form-control mb-3" name="name" id="name" placeholder="Name" required>
-                    <input type="email" class="form-control mb-3" name="email" id="email" placeholder="Email" required>
-                    <input type="number" class="form-control mb-3" name="amount" id="amount" placeholder="Amount"
-                        required>
-                    <input type="number" class="form-control mb-3" name="mobile" id="mobile" placeholder="Mobile"
-                        required>
+                    <input type="text" class="form-control mb-3" name="name" id="name" placeholder="Name">
+                    <input type="email" class="form-control mb-3" name="email" id="email" placeholder="Email">
+                    <input type="number" class="form-control mb-3" name="amount" id="amount" placeholder="Amount">
+                    <input type="number" class="form-control mb-2" name="mobile" id="mobile" placeholder="Mobile">
+                    <p id="alertMessage" class="text-danger mb-3 closeAlert"></p>
                     <button onclick="initiatePayment()" class="btn btn-info">
                         Donate Now
                     </button>
@@ -21,7 +20,21 @@
 
 
 <script>
+
+
+
     function initiatePayment() {
+
+        // for making all the fieds required
+        let inputs = document.getElementsByClassName("form")[0].children;
+        for (let i = 0; i < 4; ++i) {
+            if (inputs[i].value === "") {
+                document.getElementById("alertMessage").innerHTML = "* All the fields are required";
+                return;
+            }
+
+        }
+
         var http = new XMLHttpRequest();
         http.open("post", "https://www.archerstack.com/payments/pay-online");
         var customerName = document.getElementById('name').value;
