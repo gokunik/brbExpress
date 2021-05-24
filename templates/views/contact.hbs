@@ -30,24 +30,24 @@
             <div class="app-contact">CONTACT INFO : +91 9451988451</div>
           </div>
           <div class="screen-body-item">
-            <form class="app-form" action="/contactUs" method="POST">
+           <!-- <form class="app-form" action="/contactUs" method="POST"> -->
               <div class="app-form-group">
-                <input type="text" class="app-form-control" id="name" name="senderName" placeholder="NAME" required>
+                <input type="text" class="app-form-control" id="name1" name="senderName" placeholder="NAME" required>
               </div>
               <div class="app-form-group">
-                <input type="email" class="app-form-control" id="email" name="senderEmail" placeholder="EMAIL" required>
+                <input type="email" class="app-form-control" id="email1" name="senderEmail" placeholder="EMAIL" required>
               </div>
               <div class="app-form-group">
-                <input type="tel" class="app-form-control" id="phone" name="senderContact" placeholder="CONTACT NO" required>
+                <input type="tel" class="app-form-control" id="phone1" name="senderContact" placeholder="CONTACT NO" required>
               </div>
               <div class="app-form-group message">
-                <input type="text" class="app-form-control" id="message" name="message" placeholder="MESSAGE" required>
+                <input type="text" class="app-form-control" id="message1" name="message" placeholder="MESSAGE" required>
               </div>
               <div class="app-form-group buttons">
-                <button type="submit" class="app-form-button" name="submitBtn">SEND</button>
+                <button type="submit" class="app-form-button" name="submitBtn" onclick="submitForm()">SEND</button>
               </div>
-              <span id="resp" style="display:none;">Your response has been submitted</span>
-            </form>
+              <span id="validDiv" style="display:none;">Your response has been submitted</span>
+           <!-- </form> -->
           </div>
         </div>
       </div>
@@ -59,4 +59,34 @@
 
   {{>footer}}
 </body>
+<script>
+  var submitForm = function (){
+    var http = new XMLHttpRequest();
+    var data =
+    {
+        'name': document.getElementById('name1').value,
+        'email': document.getElementById('email1').value,
+        'phone': document.getElementById('phone1').value,
+        'message': document.getElementById('message1').value
+    };
+    http.open('post', 'http://localhost:3000/contactUs');
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    console.log('request initialized');
+    var dt = "senderName=" + data.name + "&senderEmail=" + data.email + "&senderContact=" + data.phone + "&message=" + data.message;
+    console.log(dt);
+    http.send(dt);
+    console.log('request sent')
+    http.onreadystatechange = function (ev) {
+        console.log(http.readyState);
+    }
+    http.onloadend = function (ev) {
+        console.log('Load ended');
+        console.log(http.responseText);
+        if (http.responseText == 'saved') {
+            document.getElementById('validDiv').style.setProperty('display', 'block');
+        } 
+    }
+    
+}
+</script>
 </html>
