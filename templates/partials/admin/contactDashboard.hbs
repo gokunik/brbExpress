@@ -15,41 +15,14 @@
             </form>
         </div>
         <div class="card-body p-0">
+            {{#each nam}}
             <ul class="list-group">
-<<<<<<< HEAD
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <h6 class="text-dark" id="name2">
-                        {{name}}
-=======
                 <li class="list-group-item d-flex justify-content-between" data-toggle="collapse" data-target="#a">
                     <h6 class="text-dark">
-                        Message From : username
->>>>>>> 02a2de302984522ef1aa654dbbb9a22598c738c2
+                        Message From : {{name}}
                     </h6>
                     <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </li>
-<<<<<<< HEAD
-            </ul>
-        </div>
-        {{/each}}
-    </div>
-</section>
-
-
-<div class="modal" id="messageDetails">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Message Details</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body p-0">
-                <ul class="list-group text-dark">
-                    <li class="list-group-item">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text bg-white ">Name</span>
-=======
                 <div id="a" class="collapse">
                     <ul class="list-group text-dark">
                         <li class="list-group-item border-0">
@@ -57,32 +30,32 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-white ">Name</span>
                                 </div>
-                                <p class="form-control">Name here</p>
->>>>>>> 02a2de302984522ef1aa654dbbb9a22598c738c2
+                                <p class="form-control">{{name}}</p>
                             </div>
                         </li>
                         <li class="list-group-item border-0">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white ">mobile</span>
+                                    <span class="input-group-text bg-white ">Email</span>
                                 </div>
-                                <p class="form-control">email here</p>
+                                <p class="form-control">{{email}}</p>
                             </div>
                         </li>
                         <li class="list-group-item border-0">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text bg-white ">phone</span>
+                                    <span class="input-group-text bg-white ">Phone</span>
                                 </div>
-                                <p class="form-control">phone number here</p>
+                                <p class="form-control">{{phone}}</p>
                             </div>
                         </li>
                         <li class="list-group-item border-0">
-                            <p class="form-control">Message here</p>
+                            <p class="form-control">{{message}}</p>
                         </li>
                     </ul>
                 </div>
             </ul>
+            {{/each}}
         </div>
     </div>
 </section>

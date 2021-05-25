@@ -93,38 +93,16 @@ router.get("/allannounce", async (req, res) => {
     }
 })
 
-<<<<<<< HEAD
 router.get("/admin-contact", async (req, res) => {
-    try {
-        const msg = await Contact.find({}).sort({ _id: -1 }).limit(3);
-        const detail = Contact.findOne({name:req.body.name2});
-        console.log(detail);
-        res.render("./admin/contact",{ ms:msg, viewDetail:detail });
-    } catch (e) {
-        console.log(e);
-    }
-});
-
-router.get("/allmsg",async (req,res) => {
-    try {
-        const allmsg = await Contact.find({});
-        res.render("./admin/contact",{ ms:allmsg });
-    } catch (e) {
-        console.log(e);
-    }
-})
-=======
-router.get("/admin-contact", (req, res) => {
-    res.render("./admin/contact")
+    const names = await Contact.find({}).sort({ _id: -1 }).limit(3);
+    res.render("./admin/contact",{nam:names})
 });
 
 
-
-//Testing announcement api
-router.get('/ann', (req, res) => {
-    res.render("announce");
+router.get('/allmsg',async (req,res) => {
+    const allmsg = await Contact.find({});
+    res.render("./admin/contact",{nam:allmsg});
 });
->>>>>>> 02a2de302984522ef1aa654dbbb9a22598c738c2
 
 router.get("*", (req, res) => {
     res.render("404")
