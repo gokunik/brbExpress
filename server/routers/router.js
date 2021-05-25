@@ -69,8 +69,8 @@ router.get("/admin-users", (req, res) => {
 router.get("/admin-newsfeed", async (req, res) => {
     try {
         const anno = await Announce.find({}).sort({ _id: -1 }).limit(3);
-        console.log(anno)
-        res.render("./admin/newsfeed", { data: anno });
+        console.log(anno);
+        res.render("./admin/newsfeed", { d: anno });
     } catch (e) {
         console.log("Error!!");
     }
