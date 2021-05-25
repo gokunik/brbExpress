@@ -18,11 +18,13 @@
                 </select>
             </div>
         </div>
+
         <div class="card-body p-0">
+            {{#each us1}}
             <ul class="list-group text-dark">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li class="list-group-item d-flex justify-content-between align-items-center"> 
                     <h6>
-                        Name of the user
+                        {{name}}
                     </h6>
                     <div class="d-flex">
                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
@@ -32,6 +34,7 @@
                     </div>
                 </li>
             </ul>
+            {{/each}}
         </div>
     </div>
 </section>

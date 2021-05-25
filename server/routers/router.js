@@ -62,12 +62,17 @@ router.get("/dashboard", (req, res) => {
     res.render("./admin/dashboard")
 });
 
-router.get("/admin-users", (req, res) => {
-    res.render("./admin/users")
+router.get("/admin-users", async (req, res) => {
+    try {
+        const usern = await User.find({});
+        res.render("./admin/users",{us1:usern});
+    } catch (e) {
+        console.log(e);
+    }
 });
 
 router.get("/admin-newsfeed", async (req, res) => {
-    try {
+    try  {
         const anno = await Announce.find({}).sort({ _id: -1 }).limit(3);
         res.render("./admin/newsfeed", { d: anno });
     } catch (e) {
@@ -89,12 +94,6 @@ router.get("/admin-contact", (req, res) => {
     res.render("./admin/contact")
 });
 
-
-
-//Testing announcement api
-router.get('/ann', (req, res) => {
-    res.render("announce");
-});
 
 router.get("*", (req, res) => {
     res.render("404")
