@@ -70,8 +70,13 @@ router.get("/dashboard", (req, res) => {
         res.render("./admin/adminLogin")
 });
 
-router.get("/admin-users", (req, res) => {
-    res.render("./admin/users")
+router.get("/admin-users", async (req, res) => {
+    try {
+        const usern =  await User.find({}).sort({ _id: -1 }).limit(3);
+        res.render("./admin/users",{us1:usern})
+    } catch (error) {
+        console.log(error);
+    } 
 });
 
 router.get("/admin-newsfeed", async (req, res) => {
