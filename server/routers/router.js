@@ -209,8 +209,9 @@ router.post("/contactUs", async (req, res) => {
         });
         const saveContact = await newContact.save();
         res.send("saved");
+        console.log(newContact);
     } catch (e) {
-        console.log("Error!!");
+        console.log(e);
     }
 });
 
