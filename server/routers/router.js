@@ -69,12 +69,21 @@ router.get("/admin-users", (req, res) => {
 router.get("/admin-newsfeed", async (req, res) => {
     try {
         const anno = await Announce.find({}).sort({ _id: -1 }).limit(3);
-        console.log(anno)
-        res.render("./admin/newsfeed", { data: anno });
+        res.render("./admin/newsfeed", { d: anno });
     } catch (e) {
         console.log("Error!!");
     }
 });
+
+//Function for loading all announcements
+router.get("/allannounce",async (req,res) => {
+    try {
+        const allann = await Announce.find({});
+        res.render("./admin/newsfeed",{ d:allann });
+    } catch (e) {
+        console.log(e);
+    }
+})
 
 router.get("/admin-contact", (req, res) => {
     res.render("./admin/contact")
@@ -209,8 +218,9 @@ router.post("/contactUs", async (req, res) => {
         });
         const saveContact = await newContact.save();
         res.send("saved");
+        console.log(newContact);
     } catch (e) {
-        console.log("Error!!");
+        console.log(e);
     }
 });
 
@@ -220,16 +230,10 @@ router.post('/anno', async (req, res) => {
         const newAnn = new Announce({
             announce: req.body.announ
         });
-        const saveAnnoun = await newAnn.save(function (err, newAnn) {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log(newAnn);
-            }
-        });
-        res.render("newsfeed", { data: newAnn });
+        const saveAnnoun = await newAnn.save();
+        res.send("added");
     } catch (e) {
-        console.log("Error!!");
+        console.log(e);
     }
 });
 
@@ -246,6 +250,5 @@ router.post("/admin", async (req, res) => {
        console.log("invalid");
     }
 })
-
 
 module.exports = router;
