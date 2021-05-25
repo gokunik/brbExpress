@@ -1,9 +1,16 @@
 const express = require("express");
 const router = new express.Router();
 const nodemailer = require("nodemailer");
+const app = express();
 var admintoken;
 
-let adminLogin;
+let adminLogin = true;
+let userLogin = false;
+
+app.use(function (req, res, next) {
+    res.locals.loggedIn = userLogin;
+    next()
+})
 
 const User = require("../models/User");  //User schema is called here
 const Volunteer = require("../models/Volunteer"); //Volunteer Schema is called here  
@@ -56,7 +63,7 @@ router.get("/gallery", (req, res) => {
 // routes for admin panel
 router.get("/admin-login", (req, res) => {
     if (adminLogin) {
-        res.render("/dashboard")
+        res.render("./admin/dashboard")
     }
     else
         res.render("./admin/adminLogin")
@@ -71,16 +78,24 @@ router.get("/dashboard", (req, res) => {
 });
 
 router.get("/admin-users", (req, res) => {
-    res.render("./admin/users")
+    if (adminLogin)
+        res.render("./admin/users")
+    else
+        res.render("./admin/adminLogin")
 });
 
 router.get("/admin-newsfeed", async (req, res) => {
-    try {
-        const anno = await Announce.find({}).sort({ _id: -1 }).limit(3);
-        res.render("./admin/newsfeed", { d: anno });
-    } catch (e) {
-        console.log("Error!!");
+    if (adminLogin) {
+        try {
+            const anno = await Announce.find({}).sort({ _id: -1 }).limit(3);
+            res.render("./admin/newsfeed", { d: anno });
+        } catch (e) {
+            console.log("Error!!");
+        }
     }
+    else
+        res.render("./admin/adminLogin")
+
 });
 
 //Function for loading all announcements
@@ -249,9 +264,10 @@ router.post('/anno', async (req, res) => {
 router.post("/admin", async (req, res) => {
 
     try {
-        if (req.body.username === "axle" && req.body.password === "blaze") {
-            admintoken = Math.random() * 100000;
-            res.send(admintoken.toString());
+        if (req.body.username === "axle" && req.body.password === "abc") {
+            adminLogin = true;
+            console.log("hello")
+            res.render('./admin/dashboard')
         } else {
             res.send("invalid");
         }
