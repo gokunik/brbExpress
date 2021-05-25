@@ -62,10 +62,6 @@ router.get("/gallery", (req, res) => {
 
 // routes for admin panel
 router.get("/admin-login", (req, res) => {
-    if (adminLogin) {
-        res.render("./admin/dashboard")
-    }
-    else
         res.render("./admin/adminLogin")
 });
 
