@@ -30,8 +30,7 @@
             <div class="app-contact">CONTACT INFO : +91 9451988451</div>
           </div>
           <div class="screen-body-item">
-           <!-- <form class="app-form" action="/contactUs" method="POST"> -->
-              <div class="app-form-group">
+              <div class="app-form-group" id="hell">
                 <input type="text" class="app-form-control" id="name1" name="senderName" placeholder="NAME" required>
               </div>
               <div class="app-form-group">
@@ -44,10 +43,9 @@
                 <input type="text" class="app-form-control" id="message1" name="message" placeholder="MESSAGE" required>
               </div>
               <div class="app-form-group buttons">
-                <button type="submit" class="app-form-button" name="submitBtn" onclick="submitForm()">SEND</button>
+                <button type="submit" class="app-form-button" name="submitBtn" onclick="submitF()">SEND</button>
               </div>
               <span id="validDiv" style="display:none;">Your response has been submitted</span>
-           <!-- </form> -->
           </div>
         </div>
       </div>
@@ -60,7 +58,7 @@
   {{>footer}}
 </body>
 <script>
-  var submitForm = function (){
+  var submitF = function (){
     var http = new XMLHttpRequest();
     var data =
     {
@@ -75,7 +73,7 @@
     var dt = "senderName=" + data.name + "&senderEmail=" + data.email + "&senderContact=" + data.phone + "&message=" + data.message;
     console.log(dt);
     http.send(dt);
-    console.log('request sent')
+    console.log('request sent');
     http.onreadystatechange = function (ev) {
         console.log(http.readyState);
     }
@@ -84,6 +82,7 @@
         console.log(http.responseText);
         if (http.responseText == 'saved') {
             document.getElementById('validDiv').style.setProperty('display', 'block');
+            
         } 
     }
     
