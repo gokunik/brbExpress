@@ -32,59 +32,62 @@
                     Login
                 </div>
                 <div class="card-body">
-                   <!-- <form action="/admin" method="POST"> -->
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-user"></i></span>
-                            </div>
-                            <input type="text" id="name" name="username" class="form-control" placeholder="Username" required>
+                    <!-- <form action="/admin" method="POST"> -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user"></i></span>
                         </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
-                            </div>
-                            <input type="password" name="password" id="password" class="form-control" placeholder="password" required>
+                        <input type="text" id="name" name="username" class="form-control" placeholder="Username"
+                            required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-lock"></i></span>
                         </div>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="password"
+                            required>
+                    </div>
 
-                        <div class="text-center">
-                            <button class="btn btn-danger" onclick="validatefunc()">
-                                Login
-                            </button>
-                        </div>
-                        <span id="invalidDiv" style="display: none;color:red;">*Invalid username or password</span>
-                   <!-- </form> -->
+                    <div class="text-center">
+                        <button class="btn btn-danger" onclick="validatefunc()">
+                            Login
+                        </button>
+                    </div>
+                    <span id="invalidDiv" style="display: none;color:red;">*Invalid username or password</span>
+                    <!-- </form> -->
                 </div>
             </div>
         </div>
     </section>
 </body>
 <script>
-    var validatefunc = function (){
-    var http = new XMLHttpRequest();
-    var data =
-    {
-        'name': document.getElementById('name').value,
-        'password': document.getElementById('password').value
-    };
-    http.open('post', 'http://localhost:3000/admin');
-    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    console.log('request initialized')
-    http.send("username=" + data.name + "&password=" + data.password);
-    console.log('request sent')
-    http.onreadystatechange = function (ev) {
-        console.log(http.readyState);
-    }
-    http.onloadend = function (ev) {
-        console.log('Load ended');
-        console.log(http.responseText);
-        if (http.responseText == 'invalid') {
-            document.getElementById('invalidDiv').style.setProperty('display', 'block');
-        } else {
-            window.open("/dashboard?token=" + http.responseText, "_self");
+    var validatefunc = function () {
+        var http = new XMLHttpRequest();
+        var data =
+        {
+            'name': document.getElementById('name').value,
+            'password': document.getElementById('password').value
+        };
+        http.open('post', 'http://localhost:3000/admin');
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        console.log('request initialized')
+        http.send("username=" + data.name + "&password=" + data.password);
+        console.log('request sent')
+        http.onreadystatechange = function (ev) {
+            console.log(http.readyState);
         }
+        http.onloadend = function (ev) {
+            console.log('Load ended');
+            console.log(http.responseText);
+            if (http.responseText == 'invalid') {
+                document.getElementById('invalidDiv').style.setProperty('display', 'block');
+            } else {
+                window.open("/dashboard", "_self");
+            }
+        }
+
     }
-    
-}
 
 </script>
+
 </html>
