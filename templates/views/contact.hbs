@@ -30,42 +30,43 @@
             <div class="app-contact">CONTACT INFO : +91 9451988451</div>
           </div>
           <div class="screen-body-item">
-              <div class="app-form-group" id="hell">
-                <input type="text" class="app-form-control" id="name1" name="senderName" placeholder="NAME" required>
-              </div>
-              <div class="app-form-group">
-                <input type="email" class="app-form-control" id="email1" name="senderEmail" placeholder="EMAIL" required>
-              </div>
-              <div class="app-form-group">
-                <input type="tel" class="app-form-control" id="phone1" name="senderContact" placeholder="CONTACT NO" required>
-              </div>
-              <div class="app-form-group message">
-                <input type="text" class="app-form-control" id="message1" name="message" placeholder="MESSAGE" required>
-              </div>
-              <div class="app-form-group buttons">
-                <button type="submit" class="app-form-button" name="submitBtn" onclick="submitF()">SEND</button>
-              </div>
-              <span id="validDiv" style="display:none;">Your response has been submitted</span>
+            <div class="app-form-group" id="hell">
+              <input type="text" class="app-form-control" id="name1" name="senderName" placeholder="NAME" required>
+            </div>
+            <div class="app-form-group">
+              <input type="email" class="app-form-control" id="email1" name="senderEmail" placeholder="EMAIL" required>
+            </div>
+            <div class="app-form-group">
+              <input type="tel" class="app-form-control" id="phone1" name="senderContact" placeholder="CONTACT NO"
+                required>
+            </div>
+            <div class="app-form-group message">
+              <input type="text" class="app-form-control" id="message1" name="message" placeholder="MESSAGE" required>
+            </div>
+            <div class="app-form-group buttons">
+              <button type="submit" class="app-form-button" name="submitBtn" onclick="submitF()">SEND</button>
+            </div>
+            <div class="text-white" id="validDiv"></div>
           </div>
         </div>
       </div>
 
     </div>
   </div>
-  
+
   {{!-- --}}
 
   {{>footer}}
 </body>
 <script>
-  var submitF = function (){
+  var submitF = function () {
     var http = new XMLHttpRequest();
     var data =
     {
-        'name': document.getElementById('name1').value,
-        'email': document.getElementById('email1').value,
-        'phone': document.getElementById('phone1').value,
-        'message': document.getElementById('message1').value
+      'name': document.getElementById('name1').value,
+      'email': document.getElementById('email1').value,
+      'phone': document.getElementById('phone1').value,
+      'message': document.getElementById('message1').value
     };
     http.open('post', 'http://localhost:3000/contactUs');
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -75,17 +76,18 @@
     http.send(dt);
     console.log('request sent');
     http.onreadystatechange = function (ev) {
-        console.log(http.readyState);
+      console.log(http.readyState);
     }
     http.onloadend = function (ev) {
-        console.log('Load ended');
-        console.log(http.responseText);
-        if (http.responseText == 'saved') {
-            document.getElementById('validDiv').style.setProperty('display', 'block');
-            
-        } 
+      console.log('Load ended');
+      console.log(http.responseText);
+      if (http.responseText == 'saved') {
+        document.getElementById('validDiv').innerHTML = "Your response has been submitted";
+
+      }
     }
-    
-}
+
+  }
 </script>
+
 </html>

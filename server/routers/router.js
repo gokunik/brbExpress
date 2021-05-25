@@ -58,8 +58,8 @@ router.get("/admin-login", (req, res) => {
 });
 
 router.get("/dashboard", (req, res) => {
-    if(req.query.token == admintoken && admintoken!=null)
-    res.render("./admin/dashboard")
+    if (req.query.token == admintoken && admintoken != null)
+        res.render("./admin/dashboard")
 });
 
 router.get("/admin-users", (req, res) => {
@@ -76,10 +76,10 @@ router.get("/admin-newsfeed", async (req, res) => {
 });
 
 //Function for loading all announcements
-router.get("/allannounce",async (req,res) => {
+router.get("/allannounce", async (req, res) => {
     try {
         const allann = await Announce.find({});
-        res.render("./admin/newsfeed",{ d:allann });
+        res.render("./admin/newsfeed", { d: allann });
     } catch (e) {
         console.log(e);
     }
@@ -247,7 +247,7 @@ router.post("/admin", async (req, res) => {
             res.send("invalid");
         }
     } catch (e) {
-       console.log("invalid");
+        console.log("invalid");
     }
 })
 

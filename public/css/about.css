@@ -145,6 +145,7 @@ body {
   text-transform: capitalize;
   line-height: 32px;
   font-family: "Inconsolata", monospace;
+  padding-top: 0px !important;
 }
 
 .knowMore * {
