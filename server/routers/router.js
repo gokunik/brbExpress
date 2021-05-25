@@ -65,7 +65,7 @@ router.get("/dashboard", (req, res) => {
 router.get("/admin-users", async (req, res) => {
     try {
         const usern = await User.find({});
-        res.render("./admin/users",{us1:usern});
+        res.render("./admin/users",{us1:usern,det:usern});
     } catch (e) {
         console.log(e);
     }
@@ -90,10 +90,23 @@ router.get("/allannounce",async (req,res) => {
     }
 })
 
-router.get("/admin-contact", (req, res) => {
-    res.render("./admin/contact")
+router.get("/admin-contact", async (req, res) => {
+    try {
+        const msg = await Contact.find({}).sort({ _id: -1 }).limit(3);
+        res.render("./admin/contact",{ ms:msg });
+    } catch (e) {
+        console.log(e);
+    }
 });
 
+router.get("/allmsg",async (req,res) => {
+    try {
+        const allmsg = await Contact.find({});
+        res.render("./admin/contact",{ ms:allmsg })
+    } catch (e) {
+        console.log(e);
+    }
+})
 
 router.get("*", (req, res) => {
     res.render("404")
