@@ -14,14 +14,14 @@
             </h5>
         </div>
         <div class="card-body">
-           <!-- <form action="/anno" method="POST"> -->
-                <div class="input-group mb-3">
-                    <input type="text" name="announ" id="ann" class="form-control" placeholder="Enter Information" required>
-                    <div class="input-group-append">
-                        <button class="btn btn-danger" type="submit" onclick="addann()">Add</button>
-                    </div>
+            <!-- <form action="/anno" method="POST"> -->
+            <div class="input-group mb-3">
+                <input type="text" name="announ" id="ann" class="form-control" placeholder="Enter Information" required>
+                <div class="input-group-append">
+                    <button class="btn btn-danger" type="submit" onclick="addann()">Add</button>
                 </div>
-           <!-- </form> -->
+            </div>
+            <!-- </form> -->
         </div>
     </div>
 </section>
@@ -40,18 +40,10 @@
         <div class="card-body p-0">
             <ul class="list-group text-dark">
                 {{#each d}}
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li class="list-group-item">
                     <h6 class="text-dark pr-4">
                         {{announce}}
                     </h6>
-                    <div>
-                        <form action="" method="post">
-                            <button type="button" data-toggle="tooltip" title="Delete!" data-placement="auto"
-                                class="btn btn-danger">
-                                <i class="fa fa-trash" aria-hidden="true"></i>
-                            </button>
-                        </form>
-                    </div>
 
                 </li>
                 {{/each}}
@@ -60,28 +52,28 @@
     </div>
 </section>
 <script>
-     var addann = function (){
-    var http = new XMLHttpRequest();
-    var data =
-    {
-        'announ': document.getElementById('ann').value,
-    };
-    http.open('post', 'http://localhost:3000/anno');
-    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    console.log('request initialized');
-    var dt = "announ=" + data.announ;
-    console.log(dt);
-    http.send(dt);
-    console.log('request sent')
-    http.onreadystatechange = function (ev) {
-        console.log(http.readyState);
+    var addann = function () {
+        var http = new XMLHttpRequest();
+        var data =
+        {
+            'announ': document.getElementById('ann').value,
+        };
+        http.open('post', 'http://localhost:3000/anno');
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        console.log('request initialized');
+        var dt = "announ=" + data.announ;
+        console.log(dt);
+        http.send(dt);
+        console.log('request sent')
+        http.onreadystatechange = function (ev) {
+            console.log(http.readyState);
+        }
+        http.onloadend = function (ev) {
+            console.log('Load ended');
+            console.log(http.responseText);
+            if (http.responseText == 'added') {
+                document.getElementById('validDiv').style.setProperty('display', 'block');
+            }
+        }
     }
-    http.onloadend = function (ev) {
-        console.log('Load ended');
-        console.log(http.responseText);
-        if (http.responseText == 'added') {
-            document.getElementById('validDiv').style.setProperty('display', 'block');
-        } 
-    }
-}
 </script>

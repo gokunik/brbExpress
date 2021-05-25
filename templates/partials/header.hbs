@@ -22,7 +22,19 @@
                 Donate
             </button>
 
+            {{#if loggedIn}}
+            <div class="btn-group d-flex">
+                <button type="button" id="loginBtn" class="btn btn-info" data-toggle="modal" data-target="#Modal"
+                    onclick="login()">
+                    Profile
+                </button>
 
+                <button type="button" id="registerBtn" class="btn btn-info" data-toggle="modal" data-target="#Modal"
+                    onclick="register()">
+                    logout
+                </button>
+            </div>
+            {{else}}
             <div class="btn-group d-flex">
                 <button type="button" id="loginBtn" class="btn btn-info" data-toggle="modal" data-target="#Modal"
                     onclick="login()">
@@ -34,7 +46,7 @@
                     Register
                 </button>
             </div>
-
+            {{/if}}
 
         </div>
     </div>

@@ -5,12 +5,8 @@ const app = express();
 var admintoken;
 
 let adminLogin = true;
-let userLogin = false;
+let userLogin = true;
 
-app.use(function (req, res, next) {
-    res.locals.loggedIn = userLogin;
-    next()
-})
 
 const User = require("../models/User");  //User schema is called here
 const Volunteer = require("../models/Volunteer"); //Volunteer Schema is called here  
@@ -60,13 +56,11 @@ router.get("/gallery", (req, res) => {
     res.render("imageGallery")
 });
 
+
 // routes for admin panel
 router.get("/admin-login", (req, res) => {
-    if (adminLogin) {
-        res.render("./admin/dashboard")
-    }
-    else
-        res.render("./admin/adminLogin")
+
+    res.render("./admin/adminLogin")
 });
 
 router.get("/dashboard", (req, res) => {
@@ -279,4 +273,5 @@ router.post("/admin", async (req, res) => {
     }
 })
 
-module.exports = router;
+module.exports =
+    { userLogin, router };
