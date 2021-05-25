@@ -93,7 +93,9 @@ router.get("/allannounce",async (req,res) => {
 router.get("/admin-contact", async (req, res) => {
     try {
         const msg = await Contact.find({}).sort({ _id: -1 }).limit(3);
-        res.render("./admin/contact",{ ms:msg });
+        const detail = Contact.findOne({name:req.body.name2});
+        console.log(detail);
+        res.render("./admin/contact",{ ms:msg, viewDetail:detail });
     } catch (e) {
         console.log(e);
     }
@@ -102,7 +104,7 @@ router.get("/admin-contact", async (req, res) => {
 router.get("/allmsg",async (req,res) => {
     try {
         const allmsg = await Contact.find({});
-        res.render("./admin/contact",{ ms:allmsg })
+        res.render("./admin/contact",{ ms:allmsg });
     } catch (e) {
         console.log(e);
     }
