@@ -17,13 +17,14 @@
         <div class="card-body p-0">
             {{#each nam}}
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse" data-target="#a">
+                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
+                    data-target="#collapse{{@index}}">
                     <h6 class="text-dark">
                         Message From : {{name}}
                     </h6>
                     <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </li>
-                <div id="a" class="collapse">
+                <div id="collapse{{@index}}" class="collapse">
                     <ul class="list-group text-dark">
                         <li class="list-group-item border-0">
                             <div class="input-group">

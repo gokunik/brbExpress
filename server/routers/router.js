@@ -80,11 +80,12 @@ router.get("/dashboard", (req, res) => {
 
 router.get("/admin-users", async (req, res) => {
     try {
-        const usern =  await User.find({}).sort({ _id: -1 }).limit(3);
-        res.render("./admin/users",{us1:usern})
+        const usern = await User.find({}).sort({ _id: -1 }).limit(3);
+        res.render("./admin/users", { us1: usern })
     } catch (error) {
         console.log(error);
-    } 
+    }
+});
 
 router.get("/admin-newsfeed", async (req, res) => {
     if (adminLogin) {
@@ -112,13 +113,13 @@ router.get("/allannounce", async (req, res) => {
 
 router.get("/admin-contact", async (req, res) => {
     const names = await Contact.find({}).sort({ _id: -1 }).limit(3);
-    res.render("./admin/contact",{nam:names})
+    res.render("./admin/contact", { nam: names })
 });
 
 
-router.get('/allmsg',async (req,res) => {
+router.get('/allmsg', async (req, res) => {
     const allmsg = await Contact.find({});
-    res.render("./admin/contact",{nam:allmsg});
+    res.render("./admin/contact", { nam: allmsg });
 });
 
 router.get("*", (req, res) => {
