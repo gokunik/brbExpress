@@ -77,12 +77,14 @@ router.get("/dashboard", (req, res) => {
         res.render("./admin/adminLogin")
 });
 
-router.get("/admin-users", (req, res) => {
-    if (adminLogin)
-        res.render("./admin/users")
-    else
-        res.render("./admin/adminLogin")
-});
+
+router.get("/admin-users", async (req, res) => {
+    try {
+        const usern =  await User.find({}).sort({ _id: -1 }).limit(3);
+        res.render("./admin/users",{us1:usern})
+    } catch (error) {
+        console.log(error);
+    } 
 
 router.get("/admin-newsfeed", async (req, res) => {
     if (adminLogin) {
@@ -108,15 +110,15 @@ router.get("/allannounce", async (req, res) => {
     }
 })
 
-router.get("/admin-contact", (req, res) => {
-    res.render("./admin/contact")
+router.get("/admin-contact", async (req, res) => {
+    const names = await Contact.find({}).sort({ _id: -1 }).limit(3);
+    res.render("./admin/contact",{nam:names})
 });
 
 
-
-//Testing announcement api
-router.get('/ann', (req, res) => {
-    res.render("announce");
+router.get('/allmsg',async (req,res) => {
+    const allmsg = await Contact.find({});
+    res.render("./admin/contact",{nam:allmsg});
 });
 
 router.get("*", (req, res) => {
