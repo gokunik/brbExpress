@@ -3,6 +3,7 @@ const router = new express.Router();
 const nodemailer = require("nodemailer");
 var admintoken;
 
+let adminLogin;
 
 const User = require("../models/User");  //User schema is called here
 const Volunteer = require("../models/Volunteer"); //Volunteer Schema is called here  
@@ -54,25 +55,27 @@ router.get("/gallery", (req, res) => {
 
 // routes for admin panel
 router.get("/admin-login", (req, res) => {
-    res.render("./admin/adminLogin")
+    if (adminLogin) {
+        res.render("/dashboard")
+    }
+    else
+        res.render("./admin/adminLogin")
 });
 
 router.get("/dashboard", (req, res) => {
-    if (req.query.token == admintoken && admintoken != null)
+
+    if (adminLogin)
         res.render("./admin/dashboard")
+    else
+        res.render("./admin/adminLogin")
 });
 
-router.get("/admin-users", async (req, res) => {
-    try {
-        const usern = await User.find({});
-        res.render("./admin/users",{us1:usern,det:usern});
-    } catch (e) {
-        console.log(e);
-    }
+router.get("/admin-users", (req, res) => {
+    res.render("./admin/users")
 });
 
 router.get("/admin-newsfeed", async (req, res) => {
-    try  {
+    try {
         const anno = await Announce.find({}).sort({ _id: -1 }).limit(3);
         res.render("./admin/newsfeed", { d: anno });
     } catch (e) {
@@ -90,23 +93,16 @@ router.get("/allannounce", async (req, res) => {
     }
 })
 
-router.get("/admin-contact", async (req, res) => {
-    try {
-        const msg = await Contact.find({}).sort({ _id: -1 }).limit(3);
-        res.render("./admin/contact",{ ms:msg });
-    } catch (e) {
-        console.log(e);
-    }
+router.get("/admin-contact", (req, res) => {
+    res.render("./admin/contact")
 });
 
-router.get("/allmsg",async (req,res) => {
-    try {
-        const allmsg = await Contact.find({});
-        res.render("./admin/contact",{ ms:allmsg })
-    } catch (e) {
-        console.log(e);
-    }
-})
+
+
+//Testing announcement api
+router.get('/ann', (req, res) => {
+    res.render("announce");
+});
 
 router.get("*", (req, res) => {
     res.render("404")
@@ -251,6 +247,7 @@ router.post('/anno', async (req, res) => {
 
 //this function is for admin login page validation
 router.post("/admin", async (req, res) => {
+
     try {
         if (req.body.username === "axle" && req.body.password === "blaze") {
             admintoken = Math.random() * 100000;
