@@ -1,3 +1,5 @@
+<span id="validDiv" style="display: none;color:green;">Announcement has been added Successfully</span>
+
 <section class="container py-5">
     <h5 class="text-center text-white">
         Welcome to the <span class="text-warning">Newsfeed Dashboard</span>
@@ -12,14 +14,14 @@
             </h5>
         </div>
         <div class="card-body">
-            <form action="/anno" method="POST">
+           <!-- <form action="/anno" method="POST"> -->
                 <div class="input-group mb-3">
-                    <input type="text" name="announ" class="form-control" placeholder="Enter Information" required>
+                    <input type="text" name="announ" id="ann" class="form-control" placeholder="Enter Information" required>
                     <div class="input-group-append">
-                        <button class="btn btn-danger" type="submit">Add</button>
+                        <button class="btn btn-danger" type="submit" onclick="addann()">Add</button>
                     </div>
                 </div>
-            </form>
+           <!-- </form> -->
         </div>
     </div>
 </section>
@@ -57,3 +59,30 @@
         </div>
     </div>
 </section>
+<script>
+     var addann = function (){
+    var http = new XMLHttpRequest();
+    var data =
+    {
+        'announ': document.getElementById('ann').value,
+    };
+    http.open('post', 'http://localhost:3000/anno');
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    console.log('request initialized');
+    var dt = "announ=" + data.announ;
+    console.log(dt);
+    http.send(dt);
+    console.log('request sent')
+    http.onreadystatechange = function (ev) {
+        console.log(http.readyState);
+    }
+    http.onloadend = function (ev) {
+        console.log('Load ended');
+        console.log(http.responseText);
+        if (http.responseText == 'added') {
+            document.getElementById('validDiv').style.setProperty('display', 'block');
+        } 
+    }
+    
+}
+</script>

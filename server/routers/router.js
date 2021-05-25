@@ -227,7 +227,7 @@ router.post('/anno', async (req, res) => {
                 console.log(newAnn);
             }
         });
-        res.render("newsfeed", { data: newAnn });
+       res.send("added");
     } catch (e) {
         console.log("Error!!");
     }
