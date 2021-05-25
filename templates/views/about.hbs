@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-
-    <link rel="stylesheet" href="css/util2.css" />
+    <link rel="stylesheet" href="css/util2.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/homepage.css">
     <link rel="stylesheet" href="css/about.css">
     {{>headerInlcudes}}
 </head>
@@ -15,7 +16,291 @@
 <body>
     {{>header}}
 
+    <section class="banner">
+        <div id="container">
+            What We Do
+            <div id=flip>
+                <div>
+                    <div>Social work</div>
+                </div>
+                <div>
+                    <div>Food Distribution</div>
+                </div>
+                <div>
+                    <div>We Love Helping ❤</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    {{!-- section 2 --}}
+    <section class="sectionBG">
+        <section class="about">
+            <div class="container py-5">
+                <h5 class="aboutText"><span class="text-warning font-weight-bold">Banda Roti Bank</span> started in
+                    January 2018 with a
+                    motive to
+                    feed hungry
+                    people around the
+                    locality of banda
+                    and
+                    provide
+                    them with basic commodities like blankets and warm clothes in winter and later we expanded our
+                    community
+                    services and
+                    started helping people to every extent. The thought which emerged to let hungry people have a proper
+                    meal
+                    and peaceful
+                    night is now taken multiple turns through this 3 years of our journey and we always looking forward
+                    to
+                    helping people
+                    as much as we can to let them live the life they want and to them a hope to achieve their dreams.
+                </h5>
+            </div>
+        </section>
+
+        <section class="mission">
+            <div class="container sub-section">
+                <h3 class="">
+                    We are on Misson To Help The Helpless
+                </h3>
+                <h5 class="pt-3 pb-5 sub-section">
+                    Our goal is to provide help to those who need our help to make them empowered and independent.
+                    We can't see someone sleeping hungry stomach and hopeless. we want to be the hope of all those
+                    people
+                    who are having a
+                    hard time living their lives.
+                </h5>
+            </div>
+        </section>
+    </section>
+
+    <section id="about">
+        <div class="container" data-aos="fade-up">
+            <h2 class="title text-dark mb-4 font-weight-bold">Things we do as a NGO</h2>
+            <div class="row about-container">
+
+                <div class="col-lg-6 mb-5 mb-lg-0 content">
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <div class="iconBox">
+                                <div class="icon"><img src="images/about/1.svg" /></div>
+                                <h4 class="title">Food Distribution</h4>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="iconBox" data-aos="fade-up">
+                                <div class="icon"><img src="images/about/2.svg"></div>
+                                <h4 class="title">Commodities Distribution</h4>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="iconBox">
+                                <div class="icon"><img src="images/about/3.svg" alt=""></div>
+                                <h4 class="title">Collective Weddings</h4>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="iconBox">
+                                <div class="icon"><img src="images/about/4.svg" alt=""></div>
+                                <h4 class="title">Festival celebrations</h4>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="iconBox">
+                                <div class="icon"><img src="images/about/5.svg" alt=""></div>
+                                <h4 class="title">Cloths distribtuion</h4>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="iconBox">
+                                <div class="icon"><img src="images/about/6.svg" alt=""></div>
+                                <h4 class="title">Organising social events</h4>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="iconBox">
+                                <div class="icon"><img src="images/about/7.svg" alt=""></div>
+                                <h4 class="title">Community serivces</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-6 d-flex flex-wrap align-items-center justify-content-center ">
+                    <div>
+                        <img src="../images/about/img1.jpg" class="img-fluid img-thumbnail round " id="imgContainer1"
+                            alt="">
+                    </div>
+
+                    <script>
+                        function changeImg() {
+                            const container1 = document.querySelector("#imgContainer1");
+
+
+                            const images1 = [
+                                '../images/about/img1.jpg',
+                                '../images/about/img2.jpg',
+                                '../images/about/img3.jpg',
+                                '../images/about/img4.jpg',
+                                '../images/about/img5.jpg',
+                                '../images/about/img6.jpg',
+                                '../images/about/img7.jpg',
+                                '../images/about/img8.jpg',
+                                '../images/about/img9.jpg',
+                                '../images/about/img10.jpg',
+                                '../images/about/img11.jpg',
+                                '../images/about/img12.jpg',
+                                '../images/about/img13.jpg',
+                                '../images/about/img14.jpg',
+                                '../images/about/img15.jpg',
+                                '../images/about/img16.jpg'
+                            ]
+
+                            const bg1 = images1[Math.floor(Math.random() * 6)];
+                            container1.setAttribute("src", bg1);
+                        }
+
+                        setInterval(changeImg, 4000)
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{!-- below code is generated using website builder @nitesh --}}
+
+    <section class="knowMore">
+        <section class="u-align-center u-clearfix u-section-4" id="sec-2615">
+            <div class="u-clearfix u-sheet u-sheet-1">
+                <h1 class="u-custom-font u-font-titillium-web u-text u-text-1">
+                    Know More About Us
+                </h1>
+            </div>
+        </section>
+        <section class="u-clearfix u-gradient u-section-5" id="carousel_49a5">
+            <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-valign-middle-xs u-sheet-1">
+                <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+                    <div class="u-layout">
+                        <div class="u-layout-row">
+                            <div
+                                class="u-container-style u-layout-cell u-left-cell u-size-32-md u-size-32-sm u-size-32-xs u-size-42-lg u-size-42-xl u-layout-cell-1">
+                                <div class="u-container-layout u-container-layout-1">
+                                    <p class="u-align-left u-text u-text-2">Rizwan Ali</p>
+                                    <div class="u-border-10 u-border-palette-3-base u-line u-line-horizontal u-line-1">
+                                    </div>
+                                    <p class="u-align-justify u-text u-text-1">
+                                        Through Banda Roti Bank society I aim that nobody needs to
+                                        sleep hungry, they should have access to education and other
+                                        basic commodities. By doing such good deeds I feel blessed and
+                                        happy. Getting all those blessings from the people enable me
+                                        and my team to do more and never stop helping people around
+                                        us.
+                                    </p>
+                                    <p class="u-align-left u-custom-font u-font-open-sans u-text u-text-4 mt-4 ">
+                                        President
+                                    </p>
+                                    <h5 class="u-align-left u-text u-text-3 mr-0">Banda Roti Bank</h5>
+
+                                </div>
+                            </div>
+                            <div
+                                class="u-container-style u-layout-cell u-right-cell u-size-18-lg u-size-18-xl u-size-28-md u-size-28-sm u-size-28-xs u-layout-cell-2">
+                                <div class="u-container-layout u-valign-top-sm u-valign-top-xs u-container-layout-2">
+                                    <img class="u-border-2 u-border-grey-75 u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-round u-radius-5 u-image-1"
+                                        src="images/about/president.jpeg" data-image-width="956"
+                                        data-image-height="1280" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="u-clearfix u-gradient u-section-6" id="carousel_1c4b">
+            <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-sheet-1">
+                <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+                    <div class="u-layout">
+                        <div class="u-layout-row">
+                            <div
+                                class="u-container-style u-layout-cell u-right-cell u-size-18-lg u-size-18-xl u-size-28-md u-size-28-sm u-size-28-xs u-layout-cell-1">
+                                <div class="u-container-layout u-valign-bottom-xs u-container-layout-1">
+                                    <img class="u-border-2 u-border-grey-75 u-expanded-width u-image u-image-round u-radius-5 u-image-1"
+                                        src="images/about/vicePresident.jpeg" data-image-width="695"
+                                        data-image-height="886" />
+                                </div>
+                            </div>
+                            <div
+                                class="u-container-style u-layout-cell u-left-cell u-size-32-md u-size-32-sm u-size-32-xs u-size-42-lg u-size-42-xl u-layout-cell-2">
+                                <div class="u-container-layout u-container-layout-2">
+                                    <p class="u-align-right u-text u-text-2">Muin Farooqui</p>
+                                    <div class="u-border-10 u-border-palette-3-base u-line u-line-horizontal u-line-1"
+                                        style="margin-top: 10px;">
+                                    </div>
+                                    <p class="u-align-justify u-text u-text-1">
+                                        I am very thankful to be a part of such an organization that
+                                        is opening new doors to the people letting them achieve more
+                                        in their lives and giving them hope to have a better future. I
+                                        believe that everyone should contribute to society to build a
+                                        better future. I invite you all to be a part of our lovely
+                                        organization.
+                                    </p>
+
+                                    <p class="u-align-left u-custom-font u-font-open-sans u-text u-text-4 mt-4 "
+                                        style="text-align: right;">
+                                        Vice President
+                                    </p>
+                                    <h5 class="u-align-left u-text u-text-3 mx-0 text-right">Banda Roti Bank</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="u-clearfix u-gradient u-section-7" id="carousel_4b02">
+            <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-sheet-1">
+                <div class="u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
+                    <div class="u-layout">
+                        <div class="u-layout-row">
+                            <div
+                                class="u-container-style u-layout-cell u-left-cell u-size-32-md u-size-32-sm u-size-32-xs u-size-42-lg u-size-42-xl u-layout-cell-1">
+                                <div class="u-container-layout u-valign-top-sm u-valign-top-xs u-container-layout-1">
+                                    <p class="u-align-left u-text u-text-2">Tabassum Fatima</p>
+                                    <div class="u-border-10 u-border-palette-3-base u-line u-line-horizontal u-line-1"
+                                        style="margin-top: 10px;">
+                                    </div>
+                                    <p class="u-align-justify u-text u-text-1">
+                                        Being an empowered woman I want to set an example for all
+                                        women to always stay strong. As a part of Banda Roti Bank
+                                        society, I take care of operations that are in the welfare of
+                                        women. Banda Roti Bank which is started as a food bank to feed
+                                        hungry people today it is helping women to have a better
+                                        life.
+                                        <br />
+                                    </p>
+
+                                    <p class="u-align-left u-custom-font u-font-open-sans u-text u-text-4 mt-4 ">
+                                        Woman President
+                                    </p>
+                                    <h5 class="u-align-left u-text u-text-3 mr-0">Banda Roti Bank</h5>
+                                </div>
+                            </div>
+                            <div
+                                class="u-container-style u-layout-cell u-right-cell u-size-18-lg u-size-18-xl u-size-28-md u-size-28-sm u-size-28-xs u-layout-cell-2">
+                                <div class="u-container-layout u-valign-top-sm u-valign-top-xs u-container-layout-2">
+                                    <img class="u-border-2 u-border-grey-75 u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-round u-radius-5 u-image-1"
+                                        src="images/about/womanPresident.jpeg" data-image-width="611"
+                                        data-image-height="774" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
 
 
     {{>footer}}
