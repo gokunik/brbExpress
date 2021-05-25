@@ -59,7 +59,6 @@ router.get("/gallery", (req, res) => {
 
 // routes for admin panel
 router.get("/admin-login", (req, res) => {
-
     res.render("./admin/adminLogin")
 });
 
