@@ -221,16 +221,10 @@ router.post('/anno', async (req, res) => {
         const newAnn = new Announce({
             announce: req.body.announ
         });
-        const saveAnnoun = await newAnn.save(function (err, newAnn) {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log(newAnn);
-            }
-        });
-       res.send("added");
+        const saveAnnoun = await newAnn.save();
+        res.send("added");
     } catch (e) {
-        console.log("Error!!");
+        console.log(e);
     }
 });
 

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const announSchema = new mongoose.Schema({
     announce: {
         type:String,
-        required: true
+        required:true
     }
 })
 
