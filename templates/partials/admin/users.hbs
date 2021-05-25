@@ -18,11 +18,13 @@
                 </select>
             </div>
         </div>
+
         <div class="card-body p-0">
+            {{#each us1}}
             <ul class="list-group text-dark">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li class="list-group-item d-flex justify-content-between align-items-center"> 
                     <h6>
-                        Name of the user
+                        {{name}}
                     </h6>
                     <div class="d-flex">
                         <button type="button" class="btn btn-info btn-sm" data-toggle="modal"
@@ -32,11 +34,13 @@
                     </div>
                 </li>
             </ul>
+            {{/each}}
         </div>
     </div>
 </section>
 
 {{!-- modal for user details view --}}
+{{#each det}}
 <div class="modal" id="viewDetails">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -52,7 +56,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-white ">Name</span>
                                 </div>
-                                <input type="text" class="form-control" name="fullName" placeholder="" readonly>
+                                <input type="text" class="form-control" name="fullName" value={{name}} placeholder="" readonly>
                             </div>
                         </form>
                     </li>
@@ -103,3 +107,4 @@
         </div>
     </div>
 </div>
+{{/each}}
