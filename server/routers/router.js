@@ -78,15 +78,31 @@ router.get("/admin-users", async (req, res) => {
     if (adminLogin) {
         try {
             const usern = await User.find({}).sort({ _id: -1 }).limit(3);
-            res.render("./admin/users", { us1: usern })
+            res.render("./admin/users", { us1: usern });
         } catch (error) {
             console.log(error);
         }
     }
     else
-        res.redirect("/admin-login")
-
+        res.redirect("/admin-login");
 });
+
+router.post("/values",async(req,res) => {
+    try {
+        if(req.body.opt == "Users") {
+        const usern = await User.find({}).sort({ _id: -1 }).limit(3);
+        res.render("./admin/users", { us1: usern });
+        } else if(req.body.opt == "Volunteers") {
+            const userv = await Volunteer.find({}).sort({ _id: -1 }).limit(3);
+            res.render("./admin/users", { us1: userv });  
+        } else {
+            const usern = await User.find({}).sort({ _id: -1 }).limit(3);
+            res.render("./admin/users", { us1: usern });
+        }
+    } catch (e) {
+        console.log(e);
+    }
+})
 
 router.get("/admin-newsfeed", async (req, res) => {
 
