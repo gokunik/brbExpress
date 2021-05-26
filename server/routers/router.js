@@ -32,6 +32,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/newsfeed", async (req, res) => {
+    console.log("called")
     try {
         const anno = await Announce.find({}).sort({ _id: -1 }).limit(1);
         res.render("newsfeed", { data: anno });
@@ -86,6 +87,7 @@ router.get("/admin-users", async (req, res) => {
 });
 
 router.get("/admin-newsfeed", async (req, res) => {
+
     if (adminLogin) {
         try {
             const anno = await Announce.find({}).sort({ _id: -1 }).limit(3);
@@ -169,7 +171,7 @@ router.post("/register", async (req, res) => {
                             userLogin = true;
                             console.log(newUser);
                             userdetails = newUser;
-                            res.render("index");
+                            res.redirect("/newsfeed");
 
 
                             //Sending email to registered emailId
@@ -197,7 +199,7 @@ router.post("/register", async (req, res) => {
                             userLogin = true;
                             userdetails = newVolunteer
                             console.log(newVolunteer);
-                            res.render("index");
+                            res.redirect("/newsfeed");
 
                             //Sending email to registered emailId
                             transporter.sendMail({

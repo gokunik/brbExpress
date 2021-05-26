@@ -25,7 +25,7 @@
             {{#if loggedIn}}
             <div class="btn-group d-flex">
                 <button type="button" id="profileBtn" class="btn btn-info" data-toggle="modal" data-target="#profile">
-                    Profile
+                    {{userDetails.name}}
                 </button>
 
                 <form action="userLogout" method="POST">
