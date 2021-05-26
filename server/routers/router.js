@@ -151,7 +151,7 @@ router.get('/allmsg', async (req, res) => {
         res.render("./admin/contact", { nam: allmsg });
     }
     else
-        res.redirect("/admin-login")
+        res.redirect("/admin-login");
 
 });
 
@@ -320,7 +320,7 @@ router.post("/admin", async (req, res) => {
 })
 router.post("/adminLogout", async (req, res) => {
     adminLogin = false;
-    res.redirect("/adminLogin")
+    res.redirect("/admin-login");
 })
 
 router.post("/userLogout", async (req, res) => {
