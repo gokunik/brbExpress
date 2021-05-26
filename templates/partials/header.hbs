@@ -24,15 +24,16 @@
 
             {{#if loggedIn}}
             <div class="btn-group d-flex">
-                <button type="button" id="loginBtn" class="btn btn-info" data-toggle="modal" data-target="#Modal"
-                    onclick="login()">
+                <button type="button" id="profileBtn" class="btn btn-info" data-toggle="modal" data-target="#profile">
                     Profile
                 </button>
 
-                <button type="button" id="registerBtn" class="btn btn-info" data-toggle="modal" data-target="#Modal"
-                    onclick="register()">
-                    logout
-                </button>
+                <form action="userLogout" method="POST">
+                    <button type="submit" id="userLogout" class="btn btn-info">
+                        logout
+                    </button>
+
+                </form>
             </div>
             {{else}}
             <div class="btn-group d-flex">
@@ -130,6 +131,20 @@
                 <!-- Modal body -->
                 <div class="modal-body" id="modalBody">
                     {{>donate}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="profile">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="fa fa-times-circle"></i>
+                </button>
+                <!-- Modal body -->
+                <div class="modal-body" id="modalBody">
+                    {{>profile}}
                 </div>
             </div>
         </div>

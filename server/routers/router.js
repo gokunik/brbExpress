@@ -2,10 +2,10 @@ const express = require("express");
 const router = new express.Router();
 const nodemailer = require("nodemailer");
 const app = express();
-var admintoken;
 
-let adminLogin = true;
-let userLogin = true;
+let adminLogin = false;
+global.userLogin = false;
+global.userdetails = {};
 
 
 const User = require("../models/User");  //User schema is called here
@@ -67,17 +67,22 @@ router.get("/dashboard", (req, res) => {
     if (adminLogin)
         res.render("./admin/dashboard")
     else
-        res.render("./admin/adminLogin")
+        res.redirect("/admin-login")
 });
 
 
 router.get("/admin-users", async (req, res) => {
-    try {
-        const usern = await User.find({}).sort({ _id: -1 }).limit(3);
-        res.render("./admin/users", { us1: usern })
-    } catch (error) {
-        console.log(error);
+    if (adminLogin) {
+        try {
+            const usern = await User.find({}).sort({ _id: -1 }).limit(3);
+            res.render("./admin/users", { us1: usern })
+        } catch (error) {
+            console.log(error);
+        }
     }
+    else
+        res.redirect("/admin-login")
+
 });
 
 router.get("/admin-newsfeed", async (req, res) => {
@@ -90,29 +95,44 @@ router.get("/admin-newsfeed", async (req, res) => {
         }
     }
     else
-        res.render("./admin/adminLogin")
+        res.redirect("/admin-login")
 
 });
 
 //Function for loading all announcements
 router.get("/allannounce", async (req, res) => {
-    try {
-        const allann = await Announce.find({});
-        res.render("./admin/newsfeed", { d: allann });
-    } catch (e) {
-        console.log(e);
+    if (adminLogin) {
+        try {
+            const allann = await Announce.find({});
+            res.render("./admin/newsfeed", { d: allann });
+        } catch (e) {
+            console.log(e);
+        }
     }
+    else
+        res.redirect("/admin-login")
+
 })
 
 router.get("/admin-contact", async (req, res) => {
-    const names = await Contact.find({}).sort({ _id: -1 }).limit(3);
-    res.render("./admin/contact", { nam: names })
+    if (adminLogin) {
+        const names = await Contact.find({}).sort({ _id: -1 }).limit(5);
+        res.render("./admin/contact", { nam: names })
+    }
+    else
+        res.redirect("/admin-login")
+
 });
 
 
 router.get('/allmsg', async (req, res) => {
-    const allmsg = await Contact.find({});
-    res.render("./admin/contact", { nam: allmsg });
+    if (adminLogin) {
+        const allmsg = await Contact.find({});
+        res.render("./admin/contact", { nam: allmsg });
+    }
+    else
+        res.redirect("/admin-login")
+
 });
 
 router.get("*", (req, res) => {
@@ -146,7 +166,9 @@ router.post("/register", async (req, res) => {
                                 password: req.body.password
                             });
                             const StoreUser = newUser.save();
+                            userLogin = true;
                             console.log(newUser);
+                            userdetails = newUser;
                             res.render("index");
 
 
@@ -172,6 +194,8 @@ router.post("/register", async (req, res) => {
                                 password: req.body.password
                             });
                             const StoreVolunteer = newVolunteer.save();
+                            userLogin = true;
+                            userdetails = newVolunteer
                             console.log(newVolunteer);
                             res.render("index");
 
@@ -210,12 +234,16 @@ router.post('/login', async (req, res) => {
         if (!uemail) {
             const vemail = await Volunteer.findOne({ email: req.body.email });
             if (req.body.password === vemail.password) {
+                userLogin = true;
+                userdetails = vemail;
                 res.send("http://localhost:3000/newsfeed");
             } else {
                 res.send("invalid");
             }
         } else {
             if (req.body.password === uemail.password) {
+                userLogin = true;
+                userdetails = uemail
                 res.send("http://localhost:3000/newsfeed");
             } else {
                 res.send("invalid");
@@ -262,8 +290,7 @@ router.post("/admin", async (req, res) => {
     try {
         if (req.body.username === "axle" && req.body.password === "abc") {
             adminLogin = true;
-            console.log("hello")
-            res.render('./admin/dashboard')
+            res.send("valid")
         } else {
             res.send("invalid");
         }
@@ -271,6 +298,16 @@ router.post("/admin", async (req, res) => {
         console.log("invalid");
     }
 })
+router.post("/adminLogout", async (req, res) => {
+    adminLogin = false;
+    res.redirect("/adminLogin")
+})
+
+router.post("/userLogout", async (req, res) => {
+    userLogin = false;
+    userdetails = undefined;
+    res.redirect("/")
+})
 
 module.exports =
-    { userLogin, router };
+    { router };

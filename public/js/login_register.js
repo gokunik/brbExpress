@@ -2,6 +2,8 @@
 
 // for registeration 
 // todo - needed work
+
+
 function validate() {
     var uname = document.getElementById("fullName").value;
     var email = document.getElementById("registerEmail").value;
@@ -11,7 +13,7 @@ function validate() {
     var namechecker = /^[A-Za-z. ]{3,30}$/;
     var emailchecker = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
     var phonechecker = /^(\+91[\-\s]?)?[0]?(91)?[6789]\d{9}$/;
-    var passchecker = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    var passchecker = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
 
     if (namechecker.test(uname)) {
         document.getElementById('nameerr').innerHTML = "";
@@ -37,14 +39,14 @@ function validate() {
     if (passchecker.test(pass)) {
         document.getElementById('passerr').innerHTML = "";
     } else {
-        document.getElementById('passerr').innerHTML = "*Invalid password";
+        document.getElementById('passerr').innerHTML = "*8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character";
         return false;
     }
 }
 
 
 //Login page validation using AJAX
-  var validateForm = function (){
+var validateForm = function () {
     var http = new XMLHttpRequest();
     var data =
     {
@@ -68,5 +70,5 @@ function validate() {
             window.open(http.responseText, "_self");
         }
     }
-    
+
 }

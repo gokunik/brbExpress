@@ -18,11 +18,12 @@
                 </select>
             </div>
         </div>
-{{#each us1}}
+        {{#each us1}}
         <div class="card-body p-0">
 
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse" data-target="#a{{@index}}">
+                <li class="list-group-item d-flex justify-content-between" data-toggle="collapse"
+                    data-target="#a{{@index}}">
                     <h6 class="text-dark">
                         User : {{name}}
                     </h6>
@@ -67,7 +68,7 @@
                                         <h5><span class="badge badge-info">Type</span></h5>
                                     </span>
                                 </div>
-                                <p class="form-control">Type Here</p>
+                                <p class="form-control">{{password}}</p>
                             </div>
                         </li>
                     </ul>
