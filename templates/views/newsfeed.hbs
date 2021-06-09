@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Feed</title>
+    <title>Newsfeed | Banda Roti Bank | Non Profit organisation</title>
     <link rel="stylesheet" href="css/newsfeed.css">
     {{>headerInlcudes}}
     <script src="https://apis.google.com/js/platform.js"></script>
@@ -15,7 +15,7 @@
     {{>header}}
     <section id="wrapper">
         {{!-- Section 1 --}}
-        <section id="section1" class="container py-4">
+        {{!-- <section id="section1" class="container py-4">
             <div id="announcement" class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h5 class="text-dark">
@@ -39,13 +39,13 @@
                     </ul>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         {{!-- Section 2 --}}
         <section id="section2" class="container pb-5">
-            <div class="row no-gutters justify-content-between   ">
-                {{!-- Sub section 1 --}}
-                <div class="col-12 col-lg-7" id="blogContainer">
+            <div class=" ">
+                
+                {{!-- <div class="col-12 col-lg-7" id="blogContainer">
                     <div id="blogList" class="">
                         <div class="card">
                             <img src="images/home/ngo_img2.jpg" alt="" class="img-fluid img-thumbnail border-0">
@@ -67,22 +67,23 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 {{!-- Sub section 2 --}}
-                <div class="col" id="">
+                <div class="mt-3" id="">
                     <div class="card">
                         <div class="card-header">
                             Updates
                         </div>
                         <div class="card-body px-0">
                             <ul class="nav nav-tabs justify-content-around" id="tabs">
-                                <li class="nav-item">
-                                    <a class="nav-link text-info active" data-toggle="tab" href="#fb">Facebook</a>
-                                </li>
                                 <li class="nav-item ">
-                                    <a class="nav-link text-info" data-toggle="tab" href="#twitter">Twitter</a>
+                                    <a class="nav-link text-info active" data-toggle="tab" href="#twitter">Twitter</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-info " data-toggle="tab" href="#fb">Facebook</a>
+                                </li>
+                                
                                 <li class="nav-item ">
                                     <a class="nav-link text-info" data-toggle="tab" href="#youtube">Youtube</a>
                                 </li>
@@ -93,13 +94,10 @@
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane text-center active" id="fb">
-                                    <iframe class="mt-4"
-                                        src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbandarotibankbanda&tabs=timeline&width=250&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
-                                        width="250" height="500" style="border:none;overflow:hidden" scrolling="no"
-                                        frameborder="0" allowfullscreen="true"></iframe>
+                                <div class="tab-pane text-center " id="fb">
+                                   <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fbandarotibankbanda&tabs=timeline&width=248&height=500&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId" width="248" height="500" style="border:none;overflow:hidden; max-width: 500px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                                 </div>
-                                <div class="tab-pane text-center" id="twitter" style="height: 530px; overflow-y: auto;">
+                                <div class="tab-pane text-center active" id="twitter" style="height: 530px; overflow-y: auto;">
                                     <a class="twitter-timeline"
                                         href="https://twitter.com/Rotibankbanda?ref_src=twsrc%5Etfw">Tweets by
                                         Rotibankbanda</a>
@@ -139,6 +137,6 @@
     {{>footer}}
 </body>
 
-{{!-- old instagram feed integration method removed as it is not working anymore --}}
+
 
 </html>

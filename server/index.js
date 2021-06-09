@@ -1,8 +1,7 @@
 const express = require("express");
 const hbs = require("hbs");
 const path = require("path");
-const onHeaders = require('on-headers');
-const nocache = require("nocache");
+
 
 const routerFile = require("./routers/router");
 
@@ -17,19 +16,7 @@ const partials = path.join(__dirname, "../templates/partials"); // path for part
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "../public")));
-app.set('etag', false)
-app.use(nocache());
 
-// install it as a middleware
-app.use((req, res, next) => {
-    res.set('Cache-Control', 'no-store')
-    next()
-})
-app.use(function (req, res, next) {
-    res.locals.loggedIn = userLogin;
-    res.locals.userDetails = userdetails
-    next()
-})
 
 app.set("view engine", "hbs");
 app.set("views", templatePath);

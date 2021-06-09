@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact</title>
+  <title>Contact Us | Banda Roti Bank | Non Profit organisation</title>
 
   <link rel="stylesheet" href="css/contact.css">
 
@@ -60,7 +60,26 @@
 </body>
 <script>
   var submitF = function () {
-    var http = new XMLHttpRequest();
+
+    var data =
+    {
+      'name': document.getElementById('name1').value,
+      'email': document.getElementById('email1').value,
+      'phone': document.getElementById('phone1').value,
+      'message': document.getElementById('message1').value
+    };
+
+    if ((data.name || data.email || data.phone || data.message) == "") {
+      document.getElementById('validDiv').innerHTML = "Fields cannot be empty! Please fill out all fields";
+      setTimeout(function () 
+      {
+        document.getElementById('validDiv').innerHTML = "";
+      },4000)
+    }
+    else
+    window.open("https://wa.me/919451988451?text=Hello!%20My%20name%20is%20" + data.name + "%0aEmail%20-%20" + data.email + "%0aPhone%20-%20" + data.phone + "%0a" + data.message, "_blank")
+
+    /** var http = new XMLHttpRequest();
     var data =
     {
       'name': document.getElementById('name1').value,
@@ -85,7 +104,8 @@
         document.getElementById('validDiv').innerHTML = "Your response has been submitted";
 
       }
-    }
+    } **/
+
 
   }
 </script>

@@ -3,7 +3,7 @@
 
 <header id="mainHeader">
     <!-- Secondary header - it include phone and email, option for login and register and option for donation -->
-    <div id="infoHeader" class="d-flex flex-wrap justify-content-between p-3 align-items-center bg-dark">
+    <div id="infoHeader" class="d-flex flex-wrap justify-content-center p-3 align-items-center bg-dark">
         <!-- section 1 of the secondary header -->
         <div class="infoSec1 px-1 d-flex flex-wrap">
             <div>
@@ -22,7 +22,9 @@
                 Donate
             </button>
 
-            {{#if loggedIn}}
+
+            {{!-- For future use of login and register functionality --}}
+            {{!-- {{#if loggedIn}}
             <div class="btn-group d-flex">
                 <button type="button" id="profileBtn" class="btn btn-info" data-toggle="modal" data-target="#profile">
                     {{userDetails.name}}
@@ -47,7 +49,7 @@
                     Register
                 </button>
             </div>
-            {{/if}}
+            {{/if}} --}}
 
         </div>
     </div>
