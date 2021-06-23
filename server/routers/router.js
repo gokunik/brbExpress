@@ -9,17 +9,20 @@ const Contact = require("../models/contactUs"); //Contact Us Schema is called he
 const Announce = require("../models/announ");//Announcement Schema
 
 
+
+
+
 //Initiating mailing Service 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    tls: {
-        rejectUnauthorized: false
-    },
-    auth: {
-        user: 'krpalashish842@gmail.com',
-        pass: 'axleblaze842'
-    }
-})
+// const transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     tls: {
+//         rejectUnauthorized: false
+//     },
+//     auth: {
+//         user: 'krpalashish842@gmail.com',
+//         pass: 'axleblaze842'
+//     }
+// })
 
 // Website routes
 router.get("/", (req, res) => {
@@ -29,14 +32,9 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/newsfeed", async (req, res) => {
-    try {
-        const anno = await Announce.find({}).sort({ _id: -1 }).limit(1);
-        res.render("newsfeed", { data: anno,
+router.get("/newsfeed", (req, res) => {
+    res.render("newsfeed", { 
         title:"Newsfeed | Banda Roti Bank" });
-    } catch (e) {
-        console.log("Error!!");
-    }
 });
 
 router.get("/about", (req, res) => {
@@ -67,6 +65,14 @@ router.get("/gallery", (req, res) => {
     })
 });
 
+router.get("/sitemap.xml", function(req, res, next){
+    res.sendFile(__dirname + '/public/sitemap.xml'); 
+  });
+
+  router.get("/robots.txt", function(req, res, next){
+    res.sendFile(__dirname + '/public/robots.txt'); 
+  });
+  
 
 // // routes for admin panel
 // router.get("/admin-login", (req, res) => {
